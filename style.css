@@ -72,18 +72,21 @@
       position:fixed;
       inset:0 0 auto 0;
       z-index:50;
-      background:rgba(33, 43, 179, 0.72);
+      background:rgba(13, 59, 102, 0.68);
       backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(250, 250, 250, 0.575);
+      border-bottom:1px solid rgba(255,255,255,.16);
       transition:.3s ease;
     }
     .header.scrolled{
-      background:rgba(255, 255, 255, 0.95);
+      background:rgba(255,255,255,.96);
       backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
+
     .header.scrolled .nav a,
-    .header.scrolled .logo{color:#0e0e0e}
+    .header.scrolled .logo{
+      color:var(--blue-dark);
+    }
     .header-inner{
       width:var(--container);
       margin:auto;  
@@ -253,7 +256,7 @@
     .products{overflow:hidden}
     .products .container{width:100%;padding-left:max(40px,calc((100vw - 1380px)/2))}
     .products .section-head{padding-right:max(40px,calc((100vw - 1380px)/2))}
-  
+    /* PRODUCTOS - CARRUSEL: min-width controla ancho; height controla altura. */
     .product-slide{
       position:relative;
       min-width:min(76vw,1050px);
@@ -295,7 +298,6 @@
       display:grid;grid-template-columns:repeat(3,1fr);
       gap:18px;margin-top:52px;
     }
-  
     .why-card{
       min-height:480px;
       border-radius:26px;

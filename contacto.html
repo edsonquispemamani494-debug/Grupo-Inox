@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos | Grupo Inox S.R.L.</title>
+  <meta name="description" content="Contacta a Grupo Inox S.R.L. y solicita información o una cotización.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <section>
+      <p>Hablemos</p>
+      <h1>Contactos</h1>
+      <p>
+        Envíanos tu requerimiento y nuestro equipo podrá orientarte sobre
+        productos, servicios y cotizaciones.
+      </p>
+    </section>
+
+    <section>
+      <h2>Información de contacto</h2>
+
+      <article>
+        <h3>Teléfono</h3>
+        <p>+591 73526797</p>
+      </article>
+
+      <article>
+        <h3>Correo</h3>
+        <p>correo@gmail.com</p>
+      </article>
+
+      <article>
+        <h3>Ubicación</h3>
+        <p>Av. 6 de Marzo, El Alto, Bolivia</p>
+      </article>
+    </section>
+
+    <!-- SUCURSALES / COBERTURA -->
+    <section>
+      <h2>Atención</h2>
+      <ul>
+        <li>La Paz</li>
+        <li>El Alto</li>
+        <li>Cochabamba</li>
+        <li>Santa Cruz</li>
+        <li>Tarija</li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h2>Solicita una cotización</h2>
+
+      <form action="#" method="post">
+        <div>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required>
+        </div>
+
+        <div>
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" name="correo" type="email" required>
+        </div>
+
+        <div>
+          <label for="empresa">Empresa</label>
+          <input id="empresa" name="empresa" type="text">
+        </div>
+
+        <div>
+          <label for="tipo">¿Qué necesitas?</label>
+          <select id="tipo" name="tipo">
+            <option value="">Selecciona una opción</option>
+            <option value="productos">Productos industriales</option>
+            <option value="mantenimiento">Mantenimiento</option>
+            <option value="ingenieria">Ingeniería</option>
+            <option value="cotizacion">Cotización general</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="6"></textarea>
+        </div>
+
+        <button type="submit">Enviar solicitud</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="components.js"></script>
+</body>
+</html>
