@@ -49,10 +49,24 @@ function initSharedHeader() {
   handleHeader();
 
   if (menuBtn && nav) {
-    menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+    menuBtn.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    nav.querySelectorAll('.submenu-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.has-submenu');
+        const isOpen = item.classList.toggle('submenu-open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
 
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => nav.classList.remove('open'));
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 }

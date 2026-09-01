@@ -4,103 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contactos | Grupo Inox S.R.L.</title>
-  <meta name="description" content="Contacta a Grupo Inox S.R.L. y solicita información o una cotización.">
+  <meta name="description" content="Encuentra la sucursal de Grupo Inox S.R.L. más cercana y envíanos tu consulta o solicitud de cotización.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contacto.css">
 </head>
 
-<body>
-
-
+<body class="contact-page">
   <div id="site-header"></div>
 
   <main>
+    
 
-    <section>
-      <p>Hablemos</p>
-      <h1>Contactos</h1>
-      <p>
-        Envíanos tu requerimiento y nuestro equipo podrá orientarte sobre
-        productos, servicios y cotizaciones.
-      </p>
-    </section>
-
-    <section>
-      <h2>Información de contacto</h2>
-
-      <article>
-        <h3>Teléfono</h3>
-        <p>+591 73526797</p>
-      </article>
-
-      <article>
-        <h3>Correo</h3>
-        <p>correo@gmail.com</p>
-      </article>
-
-      <article>
-        <h3>Ubicación</h3>
-        <p>Av. 6 de Marzo, El Alto, Bolivia</p>
-      </article>
-    </section>
-
-    <!-- SUCURSALES / COBERTURA -->
-    <section>
-      <h2>Atención</h2>
-      <ul>
-        <li>La Paz</li>
-        <li>El Alto</li>
-        <li>Cochabamba</li>
-        <li>Santa Cruz</li>
-        <li>Tarija</li>
-      </ul>
-    </section>
-
-
-    <section>
-      <h2>Solicita una cotización</h2>
-
-      <form action="#" method="post">
-        <div>
-          <label for="nombre">Nombre</label>
-          <input id="nombre" name="nombre" type="text" required>
+    <section class="branch-section" aria-labelledby="branchTitle">
+      <div class="container">
+        <div class="branch-intro">
+          <div>
+            <p class="eyebrow">Presencia nacional</p>
+            <h2 id="branchTitle">Encuentra Grupo Inox en Bolivia</h2>
+          </div>
         </div>
 
-        <div>
-          <label for="correo">Correo electrónico</label>
-          <input id="correo" name="correo" type="email" required>
-        </div>
+        <div class="branch-experience" id="branchExperience">
+          <div class="bolivia-panel" id="boliviaPanel">
+            <div class="map-stage" id="mapStage">
+              <div class="map-caption">
+                <span>09 departamentos</span>
+                <strong>Bolivia</strong>
+              </div>
 
-        <div>
-          <label for="empresa">Empresa</label>
-          <input id="empresa" name="empresa" type="text">
-        </div>
+              <div class="map-wrap" aria-label="Mapa de Bolivia con sucursales de Grupo Inox">
+                <img
+                  class="bolivia-map"
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/Bolivia_departments_en.svg"
+                  alt="Mapa de los nueve departamentos de Bolivia"
+                >
 
-        <div>
-          <label for="tipo">¿Qué necesitas?</label>
-          <select id="tipo" name="tipo">
-            <option value="">Selecciona una opción</option>
-            <option value="productos">Productos industriales</option>
-            <option value="mantenimiento">Mantenimiento</option>
-            <option value="ingenieria">Ingeniería</option>
-            <option value="cotizacion">Cotización general</option>
-          </select>
-        </div>
+                <button class="branch-marker marker-lapaz" type="button" data-branch="lapaz" aria-label="Ver sucursal La Paz">
+                  <span class="marker-dot"></span><span class="marker-label">La Paz</span>
+                </button>
+                <button class="branch-marker marker-elalto" type="button" data-branch="elalto" aria-label="Ver sucursal El Alto">
+                  <span class="marker-dot"></span><span class="marker-label">El Alto</span>
+                </button>
+                <button class="branch-marker marker-cochabamba" type="button" data-branch="cochabamba" aria-label="Ver sucursal Cochabamba">
+                  <span class="marker-dot"></span><span class="marker-label">Cochabamba</span>
+                </button>
+                <button class="branch-marker marker-santacruz" type="button" data-branch="santacruz" aria-label="Ver sucursal Santa Cruz">
+                  <span class="marker-dot"></span><span class="marker-label">Santa Cruz</span>
+                </button>
+                <button class="branch-marker marker-tarija" type="button" data-branch="tarija" aria-label="Ver sucursal Tarija">
+                  <span class="marker-dot"></span><span class="marker-label">Tarija</span>
+                </button>
+              </div>
+            </div>
+          </div>
 
-        <div>
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="6"></textarea>
-        </div>
+          <aside class="branch-detail" id="branchDetail" aria-live="polite" aria-hidden="true">
+            <button class="branch-back" id="branchBack" type="button" aria-label="Volver al mapa de Bolivia">
+              <span>←</span> Volver al mapa
+            </button>
 
-        <button type="submit">Enviar solicitud</button>
-      </form>
+            <div class="branch-map-frame">
+              <iframe
+                id="googleMap"
+                title="Ubicación de la sucursal seleccionada"
+                src="about:blank"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="branch-detail__content">
+              <div class="branch-heading">
+                <div>
+                  <p class="branch-kicker">Grupo Inox</p>
+                  <h3 id="branchName">Sucursal</h3>
+                </div>
+                <span class="branch-status">Atención activa</span>
+              </div>
+
+              <div class="branch-contact-list">
+                <div class="branch-contact-item">
+                  <span>Responsable</span>
+                  <strong id="branchManager">Equipo Grupo Inox</strong>
+                </div>
+                <div class="branch-contact-item">
+                  <span>Correo</span>
+                  <a id="branchEmail" href="mailto:info@grupoinox.com.bo">info@grupoinox.com.bo</a>
+                </div>
+                <div class="branch-contact-item">
+                  <span>Celular</span>
+                  <a id="branchPhone" href="tel:+59173526797">+591 73526797</a>
+                </div>
+                <div class="branch-contact-item branch-contact-item--wide">
+                  <span>Ubicación</span>
+                  <strong id="branchAddress">Bolivia</strong>
+                </div>
+              </div>
+
+              <form class="branch-form" id="branchForm">
+                <input type="hidden" id="selectedBranch" name="sucursal">
+
+                <div class="branch-form__head">
+                  <h4>Enviar un mensaje</h4>
+                  <p>Déjanos tus datos y cuéntanos qué necesitas.</p>
+                </div>
+
+                <div class="branch-form__grid">
+                  <div class="field">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+                  </div>
+                  <div class="field">
+                    <label for="correo">Correo</label>
+                    <input id="correo" name="correo" type="email" autocomplete="email" required>
+                  </div>
+                  <div class="field">
+                    <label for="celular">Celular</label>
+                    <input id="celular" name="celular" type="tel" autocomplete="tel">
+                  </div>
+                  <div class="field">
+                    <label for="empresa">Empresa</label>
+                    <input id="empresa" name="empresa" type="text" autocomplete="organization">
+                  </div>
+                  <div class="field field--full">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                  </div>
+                </div>
+
+                <button class="branch-submit" type="submit">Enviar mensaje <span>→</span></button>
+                <p class="form-feedback" id="formFeedback" role="status"></p>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
     </section>
   </main>
 
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script src="contacto.js"></script>
 </body>
 </html>

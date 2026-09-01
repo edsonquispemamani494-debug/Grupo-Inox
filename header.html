@@ -1,26 +1,36 @@
 <header class="header" id="header">
   <div class="header-inner">
-
     <a href="index.html" class="logo" aria-label="Ir al inicio">
-      <img
-        src="images/LOGO-BLANCO.png"
-        data-logo-white="images/LOGO-BLANCO.png"
-        data-logo-color="images/LOGO.png"
-        alt="Grupo Inox"
-        class="logo-img"
-        id="headerLogo"
-      >
+      <img src="images/LOGO-BLANCO.png" data-logo-white="images/LOGO-BLANCO.png" data-logo-color="images/LOGO.png" alt="Grupo Inox" class="logo-img" id="headerLogo">
     </a>
 
-    <nav class="nav" id="nav">
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Productos</a>
-      <a href="servicios.html">Servicios</a>
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+      <div class="nav-item has-submenu">
+        <a href="productos.html">Productos</a>
+        <button class="submenu-toggle" type="button" aria-label="Mostrar submenú de Productos" aria-expanded="false">⌄</button>
+        <div class="submenu">
+          <a href="productos.html">Catálogo industrial</a>
+          <a href="productos.html">Componentes</a>
+          <a href="productos.html">Equipamiento</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-submenu">
+        <a href="servicios.html">Servicios</a>
+        <button class="submenu-toggle" type="button" aria-label="Mostrar submenú de Servicios" aria-expanded="false">⌄</button>
+        <div class="submenu">
+          <a href="servicios.html">Ingeniería</a>
+          <a href="servicios.html">Mantenimiento</a>
+          <a href="servicios.html">Montaje</a>
+        </div>
+      </div>
+
+      <a href="index.html#proyectos">Proyectos</a>
+      <a href="index.html#sectores">Sectores</a>
       <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contactos</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
-
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-controls="nav" aria-expanded="false">☰</button>
   </div>
 </header>

@@ -32,7 +32,7 @@
       <div class="about-copy reveal">
         <div class="eyebrow">Nuestra empresa</div>
         <h2 class="section-title">SOBRE<br>NOSOTROS</h2>
-        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Soluciones pensadas para acompañar procesos industriales con calidad, precisión y soporte especializado.</p>
+        <p class="muted">Grupo Inox es reconocido como un distribuidor de productos industriales en Bolivia y representante de marcas líderes del sector. Integramos suministros de alta calidad con servicios especializados para responder a las necesidades de cada proyecto.</p>
         <a href="nosotros.html" class="text-link">Conoce nuestra empresa</a>
       </div>
       <div class="about-mosaic reveal">
@@ -49,7 +49,7 @@
     </div>
   </section>
 
-  <section class="section sectors">
+  <section class="section sectors" id="sectores">
     <div class="container">
       <div class="section-head reveal">
         <div>
@@ -87,38 +87,27 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Catálogo</div>
+          <div class="eyebrow">Catálogo industrial</div>
           <h2 class="section-title">NUESTROS<br>PRODUCTOS</h2>
         </div>
         <div class="slider-controls">
-          <button class="round-btn" id="productPrev">←</button>
-          <button class="round-btn" id="productNext">→</button>
+          <button class="round-btn" id="productPrev" aria-label="Producto anterior">←</button>
+          <button class="round-btn" id="productNext" aria-label="Producto siguiente">→</button>
         </div>
       </div>
 
       <div class="carousel-viewport reveal">
         <div class="product-track" id="productTrack">
-          <article class="product-slide">
-            <img src="images/imagendelaempresa1.png" alt="Válvulas industriales">
-            <div class="product-caption">
-              <div><small>Control de flujo</small><h3>Válvulas industriales</h3></div>
-              <a href="productos.html">Ver producto →</a>
-            </div>
-          </article>
-          <article class="product-slide">
-            <img src="images/imagendelaempresa1.png" alt="Tuberías y conexiones">
-            <div class="product-caption">
-              <div><small>Conducción</small><h3>Tuberías y conexiones</h3></div>
-              <a href="productos.html">Ver producto →</a>
-            </div>
-          </article>
-          <article class="product-slide">
-            <img src="images/imagendelaempresa1.png" alt="Instrumentación">
-            <div class="product-caption">
-              <div><small>Instrumentación</small><h3>Equipos de medición</h3></div>
-              <a href="productos.html">Ver producto →</a>
-            </div>
-          </article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Barras"><div class="product-caption"><div><small>Catálogo industrial</small><h3>Barras</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Válvulas"><div class="product-caption"><div><small>Control de fluidos</small><h3>Válvulas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Accesorios"><div class="product-caption"><div><small>Componentes</small><h3>Accesorios</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Controles"><div class="product-caption"><div><small>Instrumentación</small><h3>Controles</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Empaques"><div class="product-caption"><div><small>Sellado industrial</small><h3>Empaques</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Planchas"><div class="product-caption"><div><small>Acero inoxidable</small><h3>Planchas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Cilindros"><div class="product-caption"><div><small>Suministro industrial</small><h3>Cilindros</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Soldadura"><div class="product-caption"><div><small>Equipamiento</small><h3>Soldadura</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Sellos mecánicos"><div class="product-caption"><div><small>Sellado</small><h3>Sellos mecánicos</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Barandas"><div class="product-caption"><div><small>Fabricación</small><h3>Barandas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
         </div>
       </div>
     </div>
@@ -126,17 +115,43 @@
 
   <section class="section" id="servicios">
     <div class="container">
-      <div class="reveal">
-        <div class="eyebrow">Soporte técnico</div>
-        <h2 class="section-title">NUESTROS<br>SERVICIOS</h2>
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Soporte especializado</div>
+          <h2 class="section-title">NUESTROS<br>SERVICIOS</h2>
+        </div>
+        <div class="slider-controls">
+          <button class="round-btn" id="servicePrev" aria-label="Servicio anterior">←</button>
+          <button class="round-btn" id="serviceNext" aria-label="Servicio siguiente">→</button>
+        </div>
       </div>
 
-      <div class="service-feature reveal">
-        <div class="service-content">
-          <div class="eyebrow">Servicio destacado</div>
-          <h3>Ingeniería y mantenimiento industrial</h3>
-          <p>Soluciones orientadas a mejorar la continuidad operativa, confiabilidad y eficiencia de instalaciones y procesos.</p>
-          <a href="servicios.html" class="btn btn-ghost btn-arrow">Conocer servicio</a>
+      <div class="service-carousel reveal">
+        <div class="service-track" id="serviceTrack">
+          <article class="service-slide">
+            <div class="service-number">01</div><div class="eyebrow">Ingeniería</div>
+            <h3>Ingeniería de Proyectos</h3>
+            <p>Diseño y cálculo avanzado de estructuras, tanto metálicas como de hormigón armado. Acometemos el estudio y análisis de las partes estructurales que componen el proyecto, incluyendo cálculo de uniones en 3D por el método de elementos finitos, diseño de vigas carrileras y estructuras singulares.</p>
+            <a href="servicios.html" class="text-link">Conocer servicio</a>
+          </article>
+          <article class="service-slide">
+            <div class="service-number">02</div><div class="eyebrow">Mantenimiento</div>
+            <h3>Mantenimiento Industrial</h3>
+            <p>Servicios orientados a conservar la continuidad operativa, confiabilidad y buen funcionamiento de equipos, instalaciones y sistemas industriales.</p>
+            <a href="servicios.html" class="text-link">Conocer servicio</a>
+          </article>
+          <article class="service-slide">
+            <div class="service-number">03</div><div class="eyebrow">Montaje</div>
+            <h3>Montaje e Instalación</h3>
+            <p>Apoyo técnico para el montaje e instalación de componentes, estructuras, equipos y sistemas destinados a distintos procesos industriales.</p>
+            <a href="servicios.html" class="text-link">Conocer servicio</a>
+          </article>
+          <article class="service-slide">
+            <div class="service-number">04</div><div class="eyebrow">Asistencia</div>
+            <h3>Soporte Técnico</h3>
+            <p>Orientación profesional para seleccionar productos, componentes y soluciones de acuerdo con los requerimientos técnicos de cada cliente y proyecto.</p>
+            <a href="servicios.html" class="text-link">Conocer servicio</a>
+          </article>
         </div>
       </div>
     </div>
@@ -168,10 +183,10 @@
 
   <section class="stats">
     <div class="container stats-grid">
-      <div class="stat"><strong data-count="100">0+</strong><span>Proyectos realizados</span></div>
-      <div class="stat"><strong data-count="100">0+</strong><span>Clientes atendidos</span></div>
-      <div class="stat"><strong data-count="100">0+</strong><span>Productos</span></div>
-      <div class="stat"><strong data-count="100">0+</strong><span>Soluciones industriales</span></div>
+      <div class="stat"><strong data-count="10" data-duration="3200">0+</strong><span>Proyectos realizados</span></div>
+      <div class="stat"><strong data-count="354" data-duration="2200">0+</strong><span>Empresas beneficiadas</span></div>
+      <div class="stat"><strong data-count="8000" data-duration="1100">0+</strong><span>Productos</span></div>
+      <div class="stat"><strong data-count="400" data-duration="1300">0+</strong><span>Soluciones industriales</span></div>
     </div>
   </section>
 
@@ -182,13 +197,26 @@
     </div>
     <div class="brand-marquee reveal">
       <div class="brand-track">
-        <div class="brand">ALFA LAVAL</div><div class="brand">SWAGELOK</div><div class="brand">BURKERT</div><div class="brand">SPIRAX</div><div class="brand">KSB</div><div class="brand">ENDRESS+</div>
-        <div class="brand">ALFA LAVAL</div><div class="brand">SWAGELOK</div><div class="brand">BURKERT</div><div class="brand">SPIRAX</div><div class="brand">KSB</div><div class="brand">ENDRESS+</div>
+        <div class="brand"><img src="images/marcas/image 10.png" alt="ACERINOX"></div>
+        <div class="brand"><img src="images/marcas/image 11.png" alt="BRAHMA"></div>
+        <div class="brand"><img src="images/marcas/image 12.png" alt="DANFOSS"></div>
+        <div class="brand"><img src="images/marcas/image 13.png" alt="EQA"></div>
+        <div class="brand"><img src="images/marcas/image 14.png" alt="GENEBRE"></div>
+        <div class="brand"><img src="images/marcas/image 15.png" alt="HONEYWELL"></div>
+        <div class="brand"><img src="images/marcas/image 16.png" alt="MCDONNELL Y MILLER"></div>
+        <div class="brand"><img src="images/marcas/image 17.png" alt="MGA"></div>
+        <div class="brand"><img src="images/marcas/image 18.png" alt="MIYAWAKI"></div>
+        <div class="brand"><img src="images/marcas/image 19.png" alt="SAMSON"></div>
+        <div class="brand"><img src="images/marcas/image 20.png" alt="SIDER"></div>
+        <div class="brand"><img src="images/marcas/image 21.png" alt="TRISUN"></div>
+        <div class="brand"><img src="images/marcas/image 22.png" alt="WILO"></div>
+        <div class="brand"><img src="images/marcas/image 23.png" alt="WINTERS"></div>
+        <div class="brand"><img src="images/marcas/image 24.png" alt="SPIRAX SARCO"></div>
       </div>
     </div>
   </section>
 
-  <section class="section projects">
+  <section class="section projects" id="proyectos">
     <div class="container">
       <div class="reveal">
         <div class="eyebrow">Experiencia aplicada</div>

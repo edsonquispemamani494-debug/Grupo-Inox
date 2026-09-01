@@ -1,98 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios | Grupo Inox S.R.L.</title>
-  <meta name="description" content="Servicios de ingeniería, mantenimiento y soporte industrial de Grupo Inox S.R.L.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Servicios de ingeniería, mantenimiento, montaje y soporte industrial de Grupo Inox S.R.L.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- =====================================================
-       HEADER / NAVEGACIÓN
-       Estas páginas todavía NO tienen CSS ni JavaScript.
-       index.html sigue siendo la página principal.
-  ====================================================== -->
-  <div id="site-header"></div>
-
-  <main>
-    <!-- HERO INTERNO -->
-    <section>
-      <p>Soporte especializado</p>
-      <h1>Nuestros servicios</h1>
-      <p>
-        Acompañamos proyectos industriales mediante soluciones técnicas,
-        mantenimiento y soporte especializado.
-      </p>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section>
-      <h2>Soluciones para la industria</h2>
-
-      <article>
-        <h3>Ingeniería industrial</h3>
-        <p>
-          Desarrollo y apoyo técnico para proyectos, instalaciones y
-          requerimientos específicos de operación.
-        </p>
-      </article>
-
-      <article>
-        <h3>Mantenimiento industrial</h3>
-        <p>
-          Servicios orientados a la continuidad, confiabilidad y buen
-          funcionamiento de equipos e instalaciones.
-        </p>
-      </article>
-
-      <article>
-        <h3>Montaje e instalación</h3>
-        <p>
-          Apoyo en montaje de componentes, sistemas y soluciones para
-          diferentes procesos industriales.
-        </p>
-      </article>
-
-      <article>
-        <h3>Soporte técnico</h3>
-        <p>
-          Orientación profesional para seleccionar productos y soluciones
-          de acuerdo con cada necesidad.
-        </p>
-      </article>
-    </section>
-
-    <!-- PROCESO -->
-    <section>
-      <h2>Cómo trabajamos</h2>
-      <ol>
-        <li>Analizamos el requerimiento.</li>
-        <li>Definimos la solución adecuada.</li>
-        <li>Coordinamos suministro o ejecución.</li>
-        <li>Brindamos acompañamiento técnico.</li>
-      </ol>
-    </section>
-
-    <!-- CTA -->
-    <section>
-      <h2>Hablemos de tu proyecto</h2>
-      <p>Solicita información o una cotización para tu empresa.</p>
-      <a href="contacto.html">Contactar</a>
-    </section>
-  </main>
-
-  <!-- =====================================================
-       FOOTER BÁSICO
-       Luego podremos darle el mismo diseño del index con CSS.
-  ====================================================== -->
-  <div id="site-footer"></div>
-
-  <script src="components.js"></script>
-</body>
-</html>
+<div id="site-header"></div>
+<main>
+<section class="internal-hero"><div class="container internal-hero-grid"><div><div class="eyebrow">Soporte especializado</div><h1>SERVICIOS</h1></div><p>Servicios técnicos orientados a complementar el suministro industrial y acompañar cada proyecto desde el análisis hasta la ejecución.</p></div></section>
+<section class="section service-page"><div class="container">
+  <div class="section-head"><div><div class="eyebrow">Soluciones para la industria</div><h2 class="section-title">NUESTROS<br>SERVICIOS</h2></div><div class="slider-controls"><button class="round-btn" id="servicePrev">←</button><button class="round-btn" id="serviceNext">→</button></div></div>
+  <div class="service-carousel"><div class="service-track" id="serviceTrack">
+    <article class="service-slide"><div class="service-number">01</div><div class="eyebrow">Ingeniería</div><h3>Ingeniería de Proyectos</h3><p>Diseño y cálculo avanzado de estructuras, tanto metálicas como de hormigón armado. Acometemos el estudio y análisis de todas las partes estructurales que componen el proyecto, entre las que destacamos el cálculo de uniones en 3D aplicando el método de los elementos finitos, diseño de vigas carrileras, estructuras singulares, etc.</p></article>
+    <article class="service-slide"><div class="service-number">02</div><div class="eyebrow">Mantenimiento</div><h3>Mantenimiento Industrial</h3><p>Servicios orientados a la continuidad, confiabilidad y buen funcionamiento de equipos e instalaciones, contribuyendo a reducir paradas y mantener un desempeño adecuado de los procesos.</p></article>
+    <article class="service-slide"><div class="service-number">03</div><div class="eyebrow">Instalación</div><h3>Montaje e Instalación</h3><p>Apoyo en montaje e instalación de componentes, estructuras, equipos y sistemas industriales, coordinando la ejecución de acuerdo con los requerimientos técnicos de cada proyecto.</p></article>
+    <article class="service-slide"><div class="service-number">04</div><div class="eyebrow">Asistencia</div><h3>Soporte Técnico</h3><p>Orientación profesional para seleccionar productos y soluciones de acuerdo con cada necesidad, con acompañamiento técnico durante la definición y desarrollo del requerimiento.</p></article>
+  </div></div>
+  <div class="carousel-note">Los cuatro servicios cambian automáticamente y también pueden recorrerse manualmente.</div>
+</div></section>
+<section class="section compact-cta"><div class="container"><div><div class="eyebrow">Proyecto</div><h2>Hablemos de tu requerimiento</h2></div><a class="btn btn-primary btn-arrow" href="contacto.html">Contactar</a></div></section>
+</main>
+<div id="site-footer"></div><script src="components.js"></script><script src="script.js"></script>
+</body></html>
