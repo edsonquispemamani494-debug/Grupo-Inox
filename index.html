@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
         <div class="eyebrow">Grupo Inox S.R.L.</div>
         <h1>Soluciones y suministros para la industria</h1>
 <br><br>
-        <a href="contacto.html" class="btn btn-primary btn-arrow">Contáctanos</a>
+        <a href="html/contacto.html" class="btn btn-primary btn-arrow">Contáctanos</a>
       
   </section>
 
@@ -33,17 +33,17 @@
         <div class="eyebrow">Nuestra empresa</div>
         <h2 class="section-title">SOBRE<br>NOSOTROS</h2>
         <p class="muted">Grupo Inox es reconocido como un distribuidor de productos industriales en Bolivia y representante de marcas líderes del sector. Integramos suministros de alta calidad con servicios especializados para responder a las necesidades de cada proyecto.</p>
-        <a href="nosotros.html" class="text-link">Conoce nuestra empresa</a>
+        <a href="html/nosotros.html" class="text-link">Conoce nuestra empresa</a>
       </div>
       <div class="about-mosaic reveal">
         <div class="media-card big">
-          <img src="images/imagendelaempresa1.png" alt="Instalación industrial">
+          <img src="images/index/equipo-industrial.png" alt="Equipo de ingeniería industrial">
         </div>
         <div class="media-card">
-          <img src="images/imagendelaempresa1.png" alt="Trabajo industrial">
+          <img src="images/index/proyecto-industrial.png" alt="Supervisión de un proyecto industrial">
         </div>
         <div class="media-card">
-          <img src="images/imagendelaempresa1.png" alt="Tuberías industriales">
+          <img src="images/index/planta-industrial.png" alt="Planta y tuberías industriales">
         </div>
       </div>
     </div>
@@ -72,44 +72,41 @@
 
         <div class="carousel-viewport reveal">
           <div class="sector-track" id="sectorTrack">
-            <div class="sector-slide" data-label="Petrolero"><img src="images/imagendelaempresa1.png" alt="Sector petrolero"></div>
-            <div class="sector-slide" data-label="Minero"><img src="images/imagendelaempresa1.png" alt="Sector minero"></div>
-            <div class="sector-slide" data-label="Alimenticio"><img src="images/imagendelaempresa1.png" alt="Industria alimenticia"></div>
-            <div class="sector-slide" data-label="Farmacéutico"><img src="images/imagendelaempresa1.png" alt="Industria farmacéutica"></div>
-            <div class="sector-slide" data-label="Manufactura"><img src="images/imagendelaempresa1.png" alt="Manufactura"></div>
+            <div class="sector-slide" data-label="Petrolero"><img src="https://www.foronuclear.org/wp-content/uploads/2010/06/petroleo.jpg" alt="Instalación del sector petrolero" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
+            <div class="sector-slide" data-label="Minero"><img src="https://citicheavyindustries.com.ar/products/mine-mill_01.jpg" alt="Operación del sector minero" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
+            <div class="sector-slide" data-label="Alimenticio"><img src="https://sypysa.com/wp-content/uploads/2022/04/industria-alimenticia-sypysa-e1649440157384.png" alt="Planta de procesamiento alimenticio" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
+            <div class="sector-slide" data-label="Farmacéutico"><img src="https://www.mundofarmaceutico.es/documents/186042076/187070849/Industria+farmac%C3%A9utica.jpg/4e11a6a6-1005-9e6c-c30a-4c90f16e7764?t=1732092755408" alt="Industria farmacéutica" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
+            <div class="sector-slide" data-label="Manufactura"><img src="https://kaizen.com/wp-content/uploads/2024/05/capa-22-scaled.webp" alt="Planta de manufactura industrial" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section products" id="productos">
+  <section class="product-showcase" id="productos">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">Catálogo industrial</div>
-          <h2 class="section-title">NUESTROS<br>PRODUCTOS</h2>
-        </div>
-        <div class="slider-controls">
-          <button class="round-btn" id="productPrev" aria-label="Producto anterior">←</button>
-          <button class="round-btn" id="productNext" aria-label="Producto siguiente">→</button>
+      <div class="product-showcase__head reveal">
+        <div><div class="eyebrow">Catálogo industrial</div><h2>NUESTROS<br>PRODUCTOS</h2></div>
+        <div class="product-showcase__controls">
+          <button id="productShowcasePrev" class="product-showcase__nav" aria-label="Producto anterior">‹</button>
+          <button id="productShowcaseNext" class="product-showcase__nav" aria-label="Producto siguiente">›</button>
         </div>
       </div>
-
-      <div class="carousel-viewport reveal">
-        <div class="product-track" id="productTrack">
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Barras"><div class="product-caption"><div><small>Catálogo industrial</small><h3>Barras</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Válvulas"><div class="product-caption"><div><small>Control de fluidos</small><h3>Válvulas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Accesorios"><div class="product-caption"><div><small>Componentes</small><h3>Accesorios</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Controles"><div class="product-caption"><div><small>Instrumentación</small><h3>Controles</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Empaques"><div class="product-caption"><div><small>Sellado industrial</small><h3>Empaques</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Planchas"><div class="product-caption"><div><small>Acero inoxidable</small><h3>Planchas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Cilindros"><div class="product-caption"><div><small>Suministro industrial</small><h3>Cilindros</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Soldadura"><div class="product-caption"><div><small>Equipamiento</small><h3>Soldadura</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Sellos mecánicos"><div class="product-caption"><div><small>Sellado</small><h3>Sellos mecánicos</h3></div><a href="productos.html">Ver categoría →</a></div></article>
-          <article class="product-slide"><img src="images/imagendelaempresa1.png" alt="Barandas"><div class="product-caption"><div><small>Fabricación</small><h3>Barandas</h3></div><a href="productos.html">Ver categoría →</a></div></article>
+      <div class="product-showcase__slider reveal" id="productShowcaseSlider" tabindex="0" aria-label="Carrusel de productos">
+        <div class="product-showcase__track" id="productShowcaseTrack">
+          <article class="product-showcase__card" active><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Steel%20reinforcement%20rods.jpg?width=1280" alt="Barras industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Catálogo industrial</small><h3>Barras</h3><p>Soluciones en barras para aplicaciones y fabricación industrial.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Valve.jpg?width=1280" alt="Válvulas industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Control de fluidos</small><h3>Válvulas</h3><p>Componentes para apertura, cierre y regulación de fluidos.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heavy-duty-tank-weld-ferrule.jpg?width=1280" alt="Accesorios industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Componentes</small><h3>Accesorios</h3><p>Elementos complementarios para instalaciones industriales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Control%20panel%20displays%20settings%20and%20data%20for%20industrial%20equipment.jpg?width=1280" alt="Controles industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Instrumentación</small><h3>Controles</h3><p>Equipos de medición, supervisión y control de procesos.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lens-ring-gaskets-01.jpg?width=1280" alt="Empaques industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Sellado industrial</small><h3>Empaques</h3><p>Soluciones de sellado y protección para distintas aplicaciones.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sheet%20metal%20used.jpg?width=1280" alt="Planchas de acero" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Acero inoxidable</small><h3>Planchas</h3><p>Materiales para fabricación, construcción y procesos industriales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gas%20cylinders.JPG?width=1280" alt="Cilindros industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Suministro industrial</small><h3>Cilindros</h3><p>Cilindros para usos técnicos y necesidades de operación.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Welding%20equipment%20-%20panoramio.jpg?width=1280" alt="Equipos de soldadura" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Equipamiento</small><h3>Soldadura</h3><p>Equipos y suministros para trabajos de soldadura industrial.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mechanical%20seal%20part01.jpg?width=1280" alt="Sellos mecánicos" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Sellado</small><h3>Sellos mecánicos</h3><p>Sistemas de sellado para equipos rotativos de alta exigencia.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Stainless%20steel%20railing.jpg?width=1280" alt="Barandas metálicas" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Fabricación</small><h3>Barandas</h3><p>Soluciones para proyectos industriales y comerciales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
         </div>
       </div>
+      <div class="product-showcase__dots" id="productShowcaseDots" aria-label="Seleccionar producto"></div>
     </div>
   </section>
 
@@ -132,25 +129,25 @@
             <div class="service-number">01</div><div class="eyebrow">Ingeniería</div>
             <h3>Ingeniería de Proyectos</h3>
             <p>Diseño y cálculo avanzado de estructuras, tanto metálicas como de hormigón armado. Acometemos el estudio y análisis de las partes estructurales que componen el proyecto, incluyendo cálculo de uniones en 3D por el método de elementos finitos, diseño de vigas carrileras y estructuras singulares.</p>
-            <a href="servicios.html" class="text-link">Conocer servicio</a>
+            <a href="html/servicios/servicios.html" class="text-link">Conocer servicio</a>
           </article>
           <article class="service-slide">
             <div class="service-number">02</div><div class="eyebrow">Mantenimiento</div>
             <h3>Mantenimiento Industrial</h3>
             <p>Servicios orientados a conservar la continuidad operativa, confiabilidad y buen funcionamiento de equipos, instalaciones y sistemas industriales.</p>
-            <a href="servicios.html" class="text-link">Conocer servicio</a>
+            <a href="html/servicios/servicios.html" class="text-link">Conocer servicio</a>
           </article>
           <article class="service-slide">
             <div class="service-number">03</div><div class="eyebrow">Montaje</div>
             <h3>Montaje e Instalación</h3>
             <p>Apoyo técnico para el montaje e instalación de componentes, estructuras, equipos y sistemas destinados a distintos procesos industriales.</p>
-            <a href="servicios.html" class="text-link">Conocer servicio</a>
+            <a href="html/servicios/servicios.html" class="text-link">Conocer servicio</a>
           </article>
           <article class="service-slide">
             <div class="service-number">04</div><div class="eyebrow">Asistencia</div>
             <h3>Soporte Técnico</h3>
             <p>Orientación profesional para seleccionar productos, componentes y soluciones de acuerdo con los requerimientos técnicos de cada cliente y proyecto.</p>
-            <a href="servicios.html" class="text-link">Conocer servicio</a>
+            <a href="html/servicios/servicios.html" class="text-link">Conocer servicio</a>
           </article>
         </div>
       </div>
@@ -166,15 +163,15 @@
 
       <div class="why-grid">
         <article class="why-card reveal">
-          <img src="images/imagendelaempresa1.png" alt="">
+          <img src="images/index/equipo-industrial.png" alt="Equipo con experiencia industrial">
           <div class="why-content"><span class="num">01</span><h3>Experiencia industrial</h3><p>Conocimiento técnico aplicado a necesidades reales de operación.</p></div>
         </article>
         <article class="why-card reveal">
-          <img src="images/imagendelaempresa1.png" alt="">
+          <img src="images/index/catalogo-industrial.png" alt="Soluciones industriales especializadas">
           <div class="why-content"><span class="num">02</span><h3>Soluciones especializadas</h3><p>Productos y servicios alineados con los requerimientos de cada sector.</p></div>
         </article>
         <article class="why-card reveal">
-          <img src="images/imagendelaempresa1.png" alt="">
+          <img src="images/index/proyecto-industrial.png" alt="Acompañamiento técnico confiable">
           <div class="why-content"><span class="num">03</span><h3>Respuesta confiable</h3><p>Atención profesional, comunicación clara y acompañamiento técnico.</p></div>
         </article>
       </div>
@@ -235,7 +232,7 @@
           </div>
         </div>
         <div class="project-image reveal">
-          <img id="projectImage" src="images/imagendelaempresa1.png" alt="Proyecto Paceña">
+          <img id="projectImage" src="https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg" alt="Proyecto industrial Paceña" onerror="this.onerror=null;this.src='images/index/proyecto-industrial.png'">
         </div>
       </div>
     </div>
@@ -280,7 +277,7 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="components.js"></script>
-<script src="script.js"></script>
+<script src="js/components.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
