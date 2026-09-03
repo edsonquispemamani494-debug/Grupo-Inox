@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Crea una segunda copia idéntica e independiente del catálogo principal.
+  const primaryProductShowcase=document.getElementById('productos');
+  if(primaryProductShowcase && !document.getElementById('productos-2')){
+    const secondProductShowcase=primaryProductShowcase.cloneNode(true);
+    secondProductShowcase.id='productos-2';
+    secondProductShowcase.classList.add('product-showcase--emotions');
+    secondProductShowcase.querySelectorAll('[id]').forEach(element=>element.removeAttribute('id'));
+    const secondEyebrow=secondProductShowcase.querySelector('.product-showcase__head .eyebrow');
+    if(secondEyebrow) secondEyebrow.textContent='Catálogo industrial 2';
+    secondProductShowcase.querySelectorAll('.product-showcase__card').forEach((card,index)=>card.toggleAttribute('active',index===0));
+    secondProductShowcase.querySelector('.product-showcase__dots')?.replaceChildren();
+    primaryProductShowcase.after(secondProductShowcase);
+  }
+
   // Duplica los logos automáticamente para mantener el carrusel continuo.
   const brandTrack=document.querySelector('.brand-track');
   if(brandTrack && !brandTrack.dataset.cloned){
@@ -31,24 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const sectorCounter = document.getElementById('sectorCounter');
   const updateSector = () => {
     if(!sectorTrack || !sectorTrack.children.length) return;
-    const slide = sectorTrack.children[0];
-    sectorTrack.style.transform = `translateX(-${sectorIndex * (slide.getBoundingClientRect().width + 20)}px)`;
+    const sectorSlides=[...sectorTrack.children];
+    const nextSectorIndex=(sectorIndex+1)%sectorSlides.length;
+    sectorSlides.forEach((slide,index)=>{
+      slide.classList.toggle('is-active',index===sectorIndex);
+      slide.classList.toggle('is-next',index===nextSectorIndex);
+    });
     if(sectorName) sectorName.textContent = sectors[sectorIndex][0];
     if(sectorText) sectorText.textContent = sectors[sectorIndex][1];
     if(sectorCounter) sectorCounter.textContent = `${String(sectorIndex+1).padStart(2,'0')} / 05`;
   };
   document.getElementById('sectorNext')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+1)%5;updateSector()});
   document.getElementById('sectorPrev')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+4)%5;updateSector()});
+  updateSector();
 
-  const productShowcaseTrack=document.getElementById('productShowcaseTrack');
-  const productShowcaseSlider=document.getElementById('productShowcaseSlider');
-  const productShowcasePrev=document.getElementById('productShowcasePrev');
-  const productShowcaseNext=document.getElementById('productShowcaseNext');
-  const productShowcaseDots=document.getElementById('productShowcaseDots');
-
-  if(productShowcaseTrack && productShowcaseSlider && productShowcaseDots){
+  const initProductShowcase=productShowcase=>{
+    const productShowcaseTrack=productShowcase.querySelector('.product-showcase__track');
+    const productShowcaseSlider=productShowcase.querySelector('.product-showcase__slider');
+    const productShowcasePrev=productShowcase.querySelector('.product-showcase__controls .product-showcase__nav:first-child');
+    const productShowcaseNext=productShowcase.querySelector('.product-showcase__controls .product-showcase__nav:last-child');
+    const productShowcaseDots=productShowcase.querySelector('.product-showcase__dots');
+    if(!productShowcaseTrack || !productShowcaseSlider || !productShowcaseDots) return;
     const productCards=[...productShowcaseTrack.children];
-    let activeProduct=0;
+    let activeProduct=productShowcase.classList.contains('product-showcase--emotions') && productCards.length>1?1:0;
     const isMobileProduct=()=>window.matchMedia('(max-width:767px)').matches;
 
     productCards.forEach((card,index)=>{
@@ -62,6 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const productDots=[...productShowcaseDots.children];
 
     const fitProductCards=()=>{
+      if(productShowcase.classList.contains('product-showcase--emotions')){
+        productShowcaseTrack.style.removeProperty('--product-open');
+        return;
+      }
       if(isMobileProduct()){
         productShowcaseTrack.style.removeProperty('--product-open');
         return;
@@ -83,7 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
       productShowcaseSlider.scrollTo({[mobile?'top':'left']:start-(viewportSize/2-cardSize/2),behavior:'smooth'});
     };
     const updateProductUI=index=>{
-      productCards.forEach((card,i)=>card.toggleAttribute('active',i===index));
+      const emotionsMode=productShowcase.classList.contains('product-showcase--emotions');
+      const previousIndex=(index+productCards.length-1)%productCards.length;
+      const nextIndex=(index+1)%productCards.length;
+      productCards.forEach((card,i)=>{
+        card.toggleAttribute('active',i===index);
+        card.classList.toggle('is-prev',emotionsMode && i===previousIndex);
+        card.classList.toggle('is-next',emotionsMode && i===nextIndex);
+      });
       productDots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
       if(productShowcasePrev) productShowcasePrev.disabled=index===0;
       if(productShowcaseNext) productShowcaseNext.disabled=index===productCards.length-1;
@@ -92,16 +122,25 @@ document.addEventListener('DOMContentLoaded', () => {
       activeProduct=Math.min(Math.max(index,0),productCards.length-1);
       updateProductUI(activeProduct);
       fitProductCards();
-      if(shouldScroll) requestAnimationFrame(()=>centerProduct(activeProduct));
+      if(shouldScroll && !productShowcase.classList.contains('product-showcase--emotions')) requestAnimationFrame(()=>centerProduct(activeProduct));
     }
     const moveProduct=step=>activateProduct(activeProduct+step,true);
 
     productShowcasePrev?.addEventListener('click',()=>moveProduct(-1));
     productShowcaseNext?.addEventListener('click',()=>moveProduct(1));
+    let hoverActivationLocked=false;
     productCards.forEach((card,index)=>{
-      card.addEventListener('mouseenter',()=>{if(window.matchMedia('(hover:hover)').matches) activateProduct(index,true)});
+      card.addEventListener('mouseenter',()=>{
+        if(!window.matchMedia('(hover:hover)').matches) return;
+        if(productShowcase.classList.contains('product-showcase--emotions')){
+          if(!hoverActivationLocked && index!==activeProduct){hoverActivationLocked=true;activateProduct(index,true)}
+          return;
+        }
+        activateProduct(index,true);
+      });
       card.addEventListener('click',event=>{if(!event.target.closest('a')) activateProduct(index,true)});
     });
+    productShowcaseSlider.addEventListener('mouseleave',()=>{hoverActivationLocked=false});
     let touchX=0;
     let touchY=0;
     productShowcaseTrack.addEventListener('touchstart',event=>{touchX=event.touches[0].clientX;touchY=event.touches[0].clientY},{passive:true});
@@ -116,9 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if(['ArrowLeft','ArrowUp'].includes(event.key)){event.preventDefault();moveProduct(-1)}
     });
     window.addEventListener('resize',()=>{fitProductCards();centerProduct(activeProduct)});
-    updateProductUI(0);
+    updateProductUI(activeProduct);
     fitProductCards();
-  }
+  };
+  document.querySelectorAll('.product-showcase').forEach(initProductShowcase);
 
   // Compatibilidad con el carrusel de la página independiente de Productos.
   let productIndex=0;
@@ -165,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {name:'YPFB',category:'Energía · Soluciones industriales',text:'Soluciones aplicadas a requerimientos técnicos de infraestructura y procesos del sector energético.',logo:'YPFB',image:'https://lavozdetarija.com/wp-content/uploads/2020/05/bolivia_ypfb_13.jpg'}
   ];
   let projectIndex=0;
+  let projectChangeToken=0;
   const updateProject=()=>{
     const name=document.getElementById('projectName'); if(!name) return;
     const p=projects[projectIndex]; name.textContent=p.name;
@@ -172,9 +213,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('projectText').textContent=p.text;
     document.getElementById('projectLogo').textContent=p.logo;
     const projectImage=document.getElementById('projectImage');
-    projectImage.onerror=()=>{projectImage.onerror=null;projectImage.src='images/index/proyecto-industrial.png'};
-    projectImage.alt=`Proyecto industrial ${p.name}`;
-    projectImage.src=p.image;
+    const projectFrame=projectImage.closest('.project-image');
+    const currentToken=++projectChangeToken;
+    const preload=new Image();
+    const showImage=src=>{
+      if(currentToken!==projectChangeToken) return;
+      projectFrame?.classList.add('is-changing');
+      window.setTimeout(()=>{
+        if(currentToken!==projectChangeToken) return;
+        projectImage.onerror=()=>{projectImage.onerror=null;projectImage.src='images/index/proyecto-industrial.png'};
+        projectImage.alt=`Proyecto industrial ${p.name}`;
+        projectImage.src=src;
+        requestAnimationFrame(()=>requestAnimationFrame(()=>projectFrame?.classList.remove('is-changing')));
+      },220);
+    };
+    preload.onload=()=>showImage(p.image);
+    preload.onerror=()=>showImage('images/index/proyecto-industrial.png');
+    preload.src=p.image;
   };
   document.getElementById('projectNext')?.addEventListener('click',()=>{projectIndex=(projectIndex+1)%projects.length;updateProject()});
   document.getElementById('projectPrev')?.addEventListener('click',()=>{projectIndex=(projectIndex+projects.length-1)%projects.length;updateProject()});

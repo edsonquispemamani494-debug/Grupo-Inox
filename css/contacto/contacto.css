@@ -376,6 +376,8 @@
 .branch-detail{
   min-width:0;
 
+  display:none;
+
   opacity:0;
   visibility:hidden;
 
@@ -391,6 +393,8 @@
 
 
 .branch-experience.is-open .branch-detail{
+
+  display:block;
 
   opacity:1;
   visibility:visible;
