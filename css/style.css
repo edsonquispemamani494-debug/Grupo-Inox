@@ -530,7 +530,7 @@
       .has-submenu:hover .submenu,
       .has-submenu:focus-within .submenu{transform:none}
       .has-submenu.submenu-open .submenu{max-height:110px;padding:12px 14px;margin-top:8px}
-      .has-submenu.submenu-open .submenu-services{max-height:230px;padding:8px 4px;margin-top:8px}
+      .has-submenu.submenu-open .submenu-services{max-height:380px;padding:8px 4px;margin-top:8px}
       .menu-btn{display:block;position:relative;z-index:4}
       .header.scrolled .menu-btn{color:var(--blue-dark)}
       .about-grid,.sector-layout,.project-grid,.contact-grid{grid-template-columns:1fr;gap:45px}

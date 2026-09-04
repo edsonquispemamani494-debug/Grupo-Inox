@@ -19,7 +19,7 @@ function initSharedHeader() {
   // Detecta automáticamente el hero de cualquier plantilla para conservar
   // el mismo cambio de transparencia y color utilizado en la página principal.
   const hero = document.querySelector(
-    '[data-header-hero], main > .hero, main > .internal-hero, main > .contact-hero'
+    '[data-header-hero], main > .hero, main > .internal-hero, main > .contact-hero, main > .about-hero'
   );
 
   if (!header) return;

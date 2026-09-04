@@ -52,6 +52,7 @@
 
   const detail = document.getElementById('branchDetail');
   const markers = [...document.querySelectorAll('.branch-marker')];
+  const cityLinks = [...document.querySelectorAll('[data-branch-link]')];
   const back = document.getElementById('branchBack');
   const form = document.getElementById('branchForm');
   const feedback = document.getElementById('formFeedback');
@@ -78,6 +79,12 @@
       marker.setAttribute('aria-pressed', String(active));
     });
 
+    cityLinks.forEach(link => {
+      const active = link.dataset.branchLink === key;
+      link.classList.toggle('is-active', active);
+      link.setAttribute('aria-pressed', String(active));
+    });
+
     nameEl.textContent = branch.name;
     managerEl.textContent = branch.manager;
     emailEl.textContent = branch.email;
@@ -95,6 +102,7 @@
     if (window.matchMedia('(max-width: 820px)').matches) {
       detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
   }
 
   function closeDetail() {
@@ -103,6 +111,10 @@
     markers.forEach(marker => {
       marker.classList.remove('is-active');
       marker.setAttribute('aria-pressed', 'false');
+    });
+    cityLinks.forEach(link => {
+      link.classList.remove('is-active');
+      link.setAttribute('aria-pressed', 'false');
     });
     googleMap.src = 'about:blank';
     selectedBranch.value = '';
@@ -116,6 +128,11 @@
   markers.forEach(marker => {
     marker.setAttribute('aria-pressed', 'false');
     marker.addEventListener('click', () => selectBranch(marker.dataset.branch));
+  });
+
+  cityLinks.forEach(link => {
+    link.setAttribute('aria-pressed', 'false');
+    link.addEventListener('click', () => selectBranch(link.dataset.branchLink));
   });
 
   back?.addEventListener('click', closeDetail);

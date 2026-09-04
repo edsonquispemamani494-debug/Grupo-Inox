@@ -14,26 +14,84 @@
 <body>
 <div id="site-header"></div>
 <main>
-  <section class="internal-hero">
-    <div class="container internal-hero-grid">
-      <div><div class="eyebrow">Nuestra empresa</div><h1>NOSOTROS</h1></div>
-      <p>Conoce quiénes somos, hacia dónde vamos y los principios que orientan nuestro trabajo en la industria boliviana.</p>
+  <section class="about-hero" aria-labelledby="about-hero-title">
+    <div class="container about-hero-grid">
+      <div class="about-hero-copy reveal">
+        <div class="about-hero-kicker">Sobre Grupo Inox</div>
+        <h1 id="about-hero-title">Experiencia al servicio<br>de la industria</h1>
+        <p>Conoce nuestra trayectoria, experiencia y compromiso<br>con el desarrollo de soluciones para diferentes<br>necesidades industriales.</p>
+      </div>
+      <button class="about-hero-video reveal" type="button" aria-label="Ver video sobre Grupo Inox" data-video-open>
+        <span class="about-play" aria-hidden="true">▶</span>
+        <span>Ver video</span>
+      </button>
     </div>
   </section>
 
-  <section class="section intro-company">
-    <div class="container copy-wide reveal">
-      <div class="eyebrow">Introducción</div>
-      <h2 class="section-title">GRUPO INOX S.R.L.</h2>
-      <p>Grupo Inox es reconocido como el principal distribuidor de productos industriales en Bolivia, siendo embajadores oficiales de varias marcas líderes en la industria. Nuestra empresa se distingue por ofrecer una amplia gama de productos de alta calidad, que abarcan desde equipos industriales hasta herramientas especializadas, satisfaciendo las demandas de diversos sectores industriales en el país. Además de nuestra destacada oferta de productos, Grupo Inox ofrece una variedad de servicios especializados para complementar las necesidades de nuestros clientes. Desde mantenimiento industrial hasta diseño e ingeniería de proyectos, nuestros servicios están diseñados para maximizar la eficiencia y el rendimiento en la industria.</p>
+  <div class="about-video-modal" role="dialog" aria-modal="true" aria-label="Video de Grupo Inox" aria-hidden="true" data-video-modal>
+    <div class="about-video-dialog">
+      <button class="about-video-close" type="button" aria-label="Cerrar video" data-video-close>×</button>
+      <video controls preload="metadata" data-about-video>
+        <source src="../../video/dron.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <section class="about-overview" id="quienes-somos" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-intro reveal">
+        <div class="about-heading">
+          <div class="about-kicker">Sobre nosotros</div>
+          <h2 id="about-title">La <span>solución</span> está<br>en nuestros<br><span>suministros</span></h2>
+        </div>
+        <div class="about-copy">
+          <p><strong>Grupo Inox</strong>, reconocido como <strong>principal distribuidor</strong> de productos industriales en Bolivia, siendo embajadores oficiales de varias marcas líderes en la industria.</p>
+          <p>Ofrecemos una <strong>amplia gama de productos</strong> de alta calidad, desde equipos industriales hasta herramientas especializadas, atendiendo las necesidades de diversos sectores industriales del país.<br>Complementamos nuestra oferta con <strong>servicios especializados</strong>, como mantenimiento industrial, diseño e ingeniería de proyectos, orientados a brindar soluciones eficientes y contribuir al óptimo desarrollo de las operaciones de nuestros clientes.</p>
+        </div>
+      </div>
+
+      <div class="experience reveal" id="experiencia">
+        <h3>Nuestra<br>experiencia</h3>
+        <p class="experience-caption">Datos que respaldan nuestra trayectoria</p>
+        <div class="experience-grid">
+          <div class="experience-stat"><strong><span class="accent">+</span><span data-about-count="20" data-duration="1800">0</span> años</strong><small>De experiencia</small></div>
+          <div class="experience-stat"><strong><span data-about-count="354" data-duration="2200">0</span><span class="accent">+</span></strong><small>Empresas beneficiadas</small></div>
+          <div class="experience-stat"><strong><span data-about-count="10" data-duration="1500">0</span><span class="accent">+</span></strong><small>Proyectos realizados</small></div>
+          <div class="experience-stat"><strong><span data-about-count="8000" data-duration="2400">0</span><span class="accent">+</span></strong><small>Productos disponibles</small></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section values-section">
-    <div class="container value-stack">
-      <article class="statement-card reveal"><span>01</span><div><div class="eyebrow">Misión</div><h2>MISIÓN</h2><p>Liderar la industria de suministros industriales y petroleros en Bolivia, ofreciendo soluciones de calidad excepcional. Nos comprometemos a satisfacer las necesidades específicas de nuestros clientes, superando expectativas y contribuyendo al desarrollo continuo de la industria.</p></div></article>
-      <article class="statement-card reveal"><span>02</span><div><div class="eyebrow">Visión</div><h2>VISIÓN</h2><p>Nos visualizamos como el referente indiscutible en suministros industriales y petroleros en Bolivia, reconocidos por nuestra excelencia en calidad, servicio y compromiso con la innovación. Buscamos expandir nuestra presencia internacional como embajadores de marca, siendo pioneros en tecnologías avanzadas para la industria.</p></div></article>
-      <article class="statement-card reveal"><span>03</span><div><div class="eyebrow">Valores</div><h2>VALORES</h2><p>Nuestra empresa se compromete con la Calidad y Excelencia, impulsando la Innovación constante y colocando el Compromiso con el Cliente en el centro de nuestras operaciones. Guiados por la Sostenibilidad y la Integridad, fomentamos un ambiente de Trabajo en Equipo donde cada miembro contribuye al éxito colectivo, reconociendo la diversidad de talentos y perspectivas.</p></div></article>
+  <section class="purpose-section">
+    <div class="container purpose-layout">
+      <article class="purpose-row reveal" id="mision">
+        <div class="purpose-copy">
+          <h2>Misión</h2>
+          <p>Ser una empresa especializada en el suministro de insumos industriales, reconocida por la excelente calidad de sus productos, sustentando su liderazgo en el servicio personalizado a nuestros clientes, contribuyendo al desarrollo de la comunidad e incrementando la modernización del país.</p>
+        </div>
+        <div class="purpose-image purpose-image-right">
+          <div class="purpose-image-frame"><img src="../../images/index/catalogo-industrial.png" alt="Insumos y componentes industriales de acero inoxidable"></div>
+        </div>
+      </article>
+
+      <article class="purpose-row purpose-row-reverse reveal" id="vision">
+        <div class="purpose-image purpose-image-left">
+          <div class="purpose-image-frame"><img src="../../images/index/catalogo-industrial.png" alt="Productos industriales de alta calidad"></div>
+        </div>
+        <div class="purpose-copy">
+          <h2>Visión</h2>
+          <p>Convertirnos en la mejor alternativa para la industria nacional ofreciendo productos de calidad, respaldados por un excelente servicio y tecnología acorde a las exigencias de nuestros clientes y cumpliendo con los más altos estándares de calidad.</p>
+        </div>
+      </article>
+
+      <article class="values-row reveal" id="valores">
+        <div class="values-heading">
+          <h2>Nuestros<br>valores</h2>
+          <span>Valores que guían nuestro trabajo</span>
+        </div>
+        <p>Nuestra empresa se compromete con la Calidad y Excelencia, impulsando la Innovación constante y colocando el Compromiso con el Cliente en el centro de nuestras operaciones. Guiados por la Sostenibilidad y la Integridad, fomentamos un ambiente de Trabajo en Equipo donde cada miembro contribuye al éxito colectivo, reconociendo la diversidad de talentos y perspectivas.</p>
+      </article>
     </div>
   </section>
 </main>
