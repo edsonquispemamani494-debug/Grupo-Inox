@@ -54,7 +54,7 @@
 .branch-intro h2{
   max-width:820px;
   margin:0;
-  color:var(--blue-dark);
+  color:var(--text-blue);
   font-size:clamp(2.8rem,5.2vw,5rem)!important;
   line-height:.98;
   letter-spacing:-.055em;
@@ -80,7 +80,7 @@
   border:1px solid rgba(13,59,102,.2);
   border-radius:999px;
   background:#fff;
-  color:var(--blue);
+  color:var(--text-blue);
   font-weight:700;
   transition:color .25s ease,background .25s ease,border-color .25s ease,transform .25s ease;
 }
@@ -196,7 +196,7 @@
 
 .map-caption strong{
   font-size:1rem;
-  color:var(--blue-dark);
+  color:var(--text-blue);
 }
 
 
@@ -230,7 +230,7 @@
 .map-source{
   margin:14px 6px 0;
 
-  color:#98a0a9;
+  color:var(--text-blue);
 
   font-size:.68rem!important;
   line-height:1.5;
@@ -259,7 +259,7 @@
 
   background:rgba(255,255,255,.92);
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   box-shadow:
     0 8px 24px rgba(7,31,55,.12);
@@ -455,7 +455,7 @@
 
   background:none;
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   font-size:.82rem;
   font-weight:800;
@@ -535,7 +535,7 @@
 .branch-heading h3{
   margin:0;
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   font-size:
     clamp(2.1rem,3.5vw,3.35rem)!important;
@@ -666,7 +666,7 @@
 
   overflow-wrap:anywhere;
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   font-size:.88rem;
 
@@ -707,7 +707,7 @@
 
   margin:0;
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   font-size:1.35rem;
 }
@@ -752,7 +752,7 @@
 
 .field label{
 
-  color:var(--blue-dark);
+  color:var(--text-blue);
 
   font-size:.72rem;
 
@@ -864,7 +864,7 @@
   margin:
     12px 0 0;
 
-  color:var(--blue);
+  color:var(--text-blue);
 
   font-size:.78rem!important;
 

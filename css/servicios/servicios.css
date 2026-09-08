@@ -13,16 +13,16 @@
 .services-intro{padding:120px 0}
 .services-intro__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);align-items:stretch;gap:clamp(48px,7vw,105px)}
 .services-intro__copy{align-self:center}
-.services-intro__copy h2,.project-stages__title{margin:0;color:var(--blue-dark);font-size:clamp(3rem,5.8vw,6.2rem);line-height:.96;letter-spacing:-.06em}
+.services-intro__copy h2,.project-stages__title{margin:0;color:var(--text-blue);font-size:clamp(3rem,5.8vw,6.2rem);line-height:.96;letter-spacing:-.06em}
 .services-intro__copy h2 span,.project-stages__title span{color:var(--orange)}
 .services-intro__copy p{max-width:660px;margin:36px 0 0;color:var(--muted);font-size:1rem;line-height:1.9}
 .services-intro__image{min-height:560px;margin:0;overflow:hidden;border-radius:0 92px 0 92px}
 .services-intro__image img{transition:transform .7s ease}.services-intro__image:hover img{transform:scale(1.035)}
 .services-work{padding:105px 0 125px;background:var(--bg)}
-.services-work__title{margin:0 0 70px;color:var(--blue-dark);font-size:clamp(2.5rem,4vw,4.5rem);line-height:1;letter-spacing:-.045em;text-align:center}
+.services-work__title{margin:0 0 70px;color:var(--text-blue);font-size:clamp(2.5rem,4vw,4.5rem);line-height:1;letter-spacing:-.045em;text-align:center}
 .services-work__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
 .service-icon-card{text-align:center}
-.service-icon{width:clamp(92px,9vw,126px);aspect-ratio:1;margin:0 auto 25px;display:grid;place-items:center;color:var(--blue);transition:color .3s,transform .3s}
+.service-icon{width:clamp(92px,9vw,126px);aspect-ratio:1;margin:0 auto 25px;display:grid;place-items:center;color:var(--text-blue);transition:color .3s,transform .3s}
 .service-icon img{
   width:52%;
   height:52%;
@@ -32,7 +32,7 @@
 }
 .service-icon-card:hover .service-icon,.service-icon-card:focus-within .service-icon{color:var(--orange);transform:translateY(-7px)}
 .service-icon-card:hover .service-icon img,.service-icon-card:focus-within .service-icon img{filter:brightness(0) saturate(100%) invert(54%) sepia(97%) saturate(2627%) hue-rotate(349deg) brightness(100%) contrast(92%)}
-.service-icon-card h3{max-width:235px;margin:0 auto;color:var(--blue-dark);font-size:1.05rem!important;line-height:1.45}
+.service-icon-card h3{max-width:235px;margin:0 auto;color:var(--text-blue);font-size:1.05rem!important;line-height:1.45}
 .project-stages{padding:120px 0 135px}.project-stages__title{max-width:800px;margin-bottom:85px}
 .timeline{position:relative}.timeline::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;background:#d9e3ec;transform:translateX(-50%)}
 .timeline-item{position:relative;width:100%;margin-bottom:70px}.timeline-item::after{content:"";display:block;clear:both}.timeline-item:last-child{margin-bottom:0}

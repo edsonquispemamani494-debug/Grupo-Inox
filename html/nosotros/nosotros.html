@@ -15,27 +15,16 @@
 <div id="site-header"></div>
 <main>
   <section class="about-hero" aria-labelledby="about-hero-title">
+    <video class="about-hero-background" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="../../images/imagendelaempresa1.png" aria-hidden="true" data-about-video><source src="../../video/dron.mp4" type="video/mp4"></video>
     <div class="container about-hero-grid">
       <div class="about-hero-copy reveal">
         <div class="about-hero-kicker">Sobre Grupo Inox</div>
         <h1 id="about-hero-title">Experiencia al servicio<br>de la industria</h1>
         <p>Conoce nuestra trayectoria, experiencia y compromiso<br>con el desarrollo de soluciones para diferentes<br>necesidades industriales.</p>
       </div>
-      <button class="about-hero-video reveal" type="button" aria-label="Ver video sobre Grupo Inox" data-video-open>
-        <span class="about-play" aria-hidden="true">▶</span>
-        <span>Ver video</span>
-      </button>
+      <button class="about-hero-video reveal" type="button" aria-controls="hero-video" data-video-toggle><span class="about-play" aria-hidden="true" data-video-icon>Ⅱ</span><span data-video-label>Pausar video</span></button>
     </div>
   </section>
-
-  <div class="about-video-modal" role="dialog" aria-modal="true" aria-label="Video de Grupo Inox" aria-hidden="true" data-video-modal>
-    <div class="about-video-dialog">
-      <button class="about-video-close" type="button" aria-label="Cerrar video" data-video-close>×</button>
-      <video controls preload="metadata" data-about-video>
-        <source src="../../video/dron.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
 
   <section class="about-overview" id="quienes-somos" aria-labelledby="about-title">
     <div class="container">
@@ -90,11 +79,147 @@
           <h2>Nuestros<br>valores</h2>
           <span>Valores que guían nuestro trabajo</span>
         </div>
-        <p>Nuestra empresa se compromete con la Calidad y Excelencia, impulsando la Innovación constante y colocando el Compromiso con el Cliente en el centro de nuestras operaciones. Guiados por la Sostenibilidad y la Integridad, fomentamos un ambiente de Trabajo en Equipo donde cada miembro contribuye al éxito colectivo, reconociendo la diversidad de talentos y perspectivas.</p>
+        <div class="values-grid">
+          <div class="value-card">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="28" cy="17" r="14"/><path d="m20 29-4 22 12-8 12 8-4-22"/></svg>
+            <h3>Calidad</h3>
+            <p>Buscamos mantener altos estándares en los productos, servicios y soluciones que ofrecemos.</p>
+          </div>
+          <div class="value-card">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 32c0-6-7-8-7-15a14 14 0 0 1 28 0c0 7-7 9-7 15M21 41h14M23 51h10"/></svg>
+            <h3>Innovación</h3>
+            <p>Incorporamos nuevas tecnologías y soluciones que respondan a las exigencias de la industria.</p>
+          </div>
+          <div class="value-card">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5-3 29 17 16c4 4 10-1 6-5l-4-4M5 8h18M51 5l3 29h-6L33 21c-3-3-6-2-9 1l-3 3c-5 5-10-2-5-7l10-10c4-4 9-4 14-1 4 2 7 2 11 0M25 45l3 3c4 4 10-2 6-6l-6-6M34 42c5 5 11-1 7-5l-6-6M41 37c5 5 10-1 6-5"/></svg>
+            <h3>Compromiso</h3>
+            <p>Trabajamos con responsabilidad y dedicación para atender las necesidades de cada cliente.</p>
+          </div>
+          <div class="value-card">
+            <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M29 51H9a5 5 0 0 1-5-5V11a5 5 0 0 1 5-5h35a5 5 0 0 1 5 5v20M4 21h45M17 3v9M36 3v9m0 34 5 5 10-10"/></svg>
+            <h3>Responsabilidad</h3>
+            <p>Actuamos de manera responsable en cada proyecto, servicio y relación con nuestros clientes.</p>
+          </div>
+        </div>
       </article>
     </div>
   </section>
+  <section class="team-section" aria-labelledby="team-title">
+    <div class="container">
+      <div class="team-heading">
+        <h2 id="team-title">Nuestro<br>Equipo</h2>
+        <p>Las personas detrás de Grupo Inox</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card">
+          <img src="../../images/nosotros/empleado1.png" alt="Juanito Perez" loading="lazy">
+          <div class="team-card-copy"><h3>Alan Grainger</h3><p>Administrador La Paz</p></div>
+        </article>
+        <article class="team-card">
+          <img src="../../images/nosotros/empleado2.png" alt="Juanito Perez" loading="lazy">
+          <div class="team-card-copy"><h3>Amanda Obo</h3><p>Gerente Financiero</p></div>
+        </article>
+        <article class="team-card">
+          <img src="../../images/nosotros/empleado3.png" alt="Juanito Perez" loading="lazy">
+          <div class="team-card-copy"><h3>Grace Unu</h3><p>Directora de Marketing</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="team-section team-section--portraits" aria-labelledby="team-title-2">
+    <div class="container">
+      <div class="team-heading">
+        <h2 id="team-title-2">Nuestro<br>Equipo</h2>
+        <p>Las personas detrás de Grupo Inox</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-portrait"><img src="../../images/nosotros/empleado1.png" alt="Juanito Perez" loading="lazy"></div>
+          <div class="team-portrait-caption"><h3>Alan Grainger</h3><p>Administrador La Paz</p></div>
+        </article>
+        <article class="team-card">
+          <div class="team-portrait"><img src="../../images/nosotros/empleado2.png" alt="Juanito Perez" loading="lazy"></div>
+          <div class="team-portrait-caption"><h3>Amanda Obo</h3><p>Gerente Financiero</p></div>
+        </article>
+        <article class="team-card">
+          <div class="team-portrait"><img src="../../images/nosotros/empleado3.png" alt="Juanito Perez" loading="lazy"></div>
+          <div class="team-portrait-caption"><h3>Grace Unu</h3><p>Directora de Marketing</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brands" id="marcas-aliadas">
+    <div class="container reveal">
+      <h2 class="section-title">MARCAS CON LAS<br>QUE TRABAJAMOS</h2>
+    </div>
+    <div class="brand-marquee reveal">
+      <div class="brand-track">
+        <div class="brand"><img src="../../images/marcas/image 10.png" alt="ACERINOX"></div>
+        <div class="brand"><img src="../../images/marcas/image 11.png" alt="BRAHMA"></div>
+        <div class="brand"><img src="../../images/marcas/image 12.png" alt="DANFOSS"></div>
+        <div class="brand"><img src="../../images/marcas/image 13.png" alt="EQA"></div>
+        <div class="brand"><img src="../../images/marcas/image 14.png" alt="GENEBRE"></div>
+        <div class="brand"><img src="../../images/marcas/image 15.png" alt="HONEYWELL"></div>
+        <div class="brand"><img src="../../images/marcas/image 16.png" alt="MCDONNELL Y MILLER"></div>
+        <div class="brand"><img src="../../images/marcas/image 17.png" alt="MGA"></div>
+        <div class="brand"><img src="../../images/marcas/image 18.png" alt="MIYAWAKI"></div>
+        <div class="brand"><img src="../../images/marcas/image 19.png" alt="SAMSON"></div>
+        <div class="brand"><img src="../../images/marcas/image 20.png" alt="SIDER"></div>
+        <div class="brand"><img src="../../images/marcas/image 21.png" alt="TRISUN"></div>
+        <div class="brand"><img src="../../images/marcas/image 22.png" alt="WILO"></div>
+        <div class="brand"><img src="../../images/marcas/image 23.png" alt="WINTERS"></div>
+        <div class="brand"><img src="../../images/marcas/image 24.png" alt="SPIRAX SARCO"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-copy reveal">
+        <div class="eyebrow">Hablemos</div>
+        <h2>TRABAJA<br>CON NOSOTROS</h2>
+        <div class="quote">Solicita tu cotización.</div>
+        <p class="muted">Impulsa tus proyectos con nosotros. Cuéntanos qué necesitas y nuestro equipo podrá orientarte.</p>
+      </div>
+
+      <form class="form-box reveal" id="contactForm">
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <input id="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Correo</label>
+          <input id="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="company">Empresa</label>
+          <input id="company" type="text">
+        </div>
+        <div class="form-row">
+          <label for="service">Servicio</label>
+          <select id="service">
+            <option>Selecciona una opción</option>
+            <option>Productos industriales</option>
+            <option>Mantenimiento</option>
+            <option>Ingeniería</option>
+            <option>Cotización general</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-arrow" type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
 </main>
+<dialog class="employee-dialog" aria-labelledby="employee-name" aria-describedby="employee-description">
+  <button class="employee-close" type="button" aria-label="Cerrar perfil" autofocus>×</button>
+  <div class="employee-photo"><img alt="" data-employee-image></div>
+  <div class="employee-details">
+    <span class="employee-kicker">Personas que hacen la diferencia</span>
+    <h2 id="employee-name"></h2>
+    <p class="employee-role" data-employee-role></p>
+    <h3>¿Qué hace?</h3>
+    <p id="employee-description"></p>
+  </div>
+</dialog>
 <div id="site-footer"></div>
 <script src="../../js/components.js"></script>
 <script src="../../js/script.js"></script>
