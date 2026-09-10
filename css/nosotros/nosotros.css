@@ -78,11 +78,12 @@
   position:relative;
   z-index:2;
   display:grid;
-  grid-template-columns:1.15fr .85fr;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
   gap:70px;
   align-items:center;
-  width:100%;
-  padding-inline:clamp(115px,11vw,175px);
+  width:var(--container);
+  margin-inline:auto;
+  padding-inline:0;
 }
 .about-hero-kicker{
   margin-bottom:10px;
@@ -145,13 +146,13 @@
 .experience-stat small{display:block;margin-top:8px;color:#164980;font-size:.82rem}
 @media (max-width:900px){
   .about-hero{min-height:700px;background-position:58% center}
-  .about-hero-grid{grid-template-columns:1fr;gap:18px;padding-inline:28px}
+  .about-hero-grid{grid-template-columns:minmax(0,1fr);gap:18px}
   .about-hero-video{justify-content:flex-start;min-height:auto}
   .about-intro{grid-template-columns:1fr;gap:32px}.about-copy{padding-top:0;max-width:none}.experience-grid{grid-template-columns:repeat(2,1fr);row-gap:44px}
 }
 @media (max-width:560px){
   .about-hero{min-height:620px;padding:120px 0 60px;background-position:62% center}
-  .about-hero-grid{padding-inline:8px}
+  .about-hero h1{font-size:clamp(2rem,8vw,3rem)!important}
   .about-hero h1 br,.about-hero-copy p br{display:none}
   .about-hero-copy p{max-width:440px}
   .about-overview{padding:64px 0 76px}.about-heading h2 br{display:none}.experience{margin-top:68px}.experience-grid{grid-template-columns:1fr;gap:38px}
@@ -187,6 +188,7 @@
 .purpose-image{
   position:relative;
   height:280px;
+  margin-inline:13px;
 }
 .purpose-image-frame{
   position:relative;
@@ -292,7 +294,7 @@
   .purpose-section{padding:70px 0}
   .purpose-layout{gap:68px}
   .purpose-copy h2,.values-heading h2{margin-bottom:18px}
-  .purpose-image{height:230px;margin:0 10px}
+  .purpose-image{height:230px;margin:0 13px}
 }
 
 /* Fichas de empleados compartidas por las dos secciones. */
@@ -317,3 +319,13 @@ body.employee-profile-open{overflow:hidden}
 .employee-details #employee-description{margin:0;color:var(--text-blue);font-size:15px;line-height:1.7}
 @keyframes employee-appear{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){.employee-dialog[open]{animation:none}.team-card:has(.employee-trigger){transition:none}}
+
+/* Mantiene el contenido dentro de los márgenes del header. */
+.about-hero-copy,.about-intro>*,.purpose-row>*,.team-grid>*,.experience-grid>*{min-width:0}
+.about-hero h1,.about-heading h2,.purpose-copy h2,.team-portrait-caption h3{overflow-wrap:anywhere}
+#marcas-aliadas .brand-marquee{width:var(--container);margin-inline:auto}
+/* Espacio compacto alrededor de las marcas aliadas. */
+.team-section:has(+ #marcas-aliadas){padding-bottom:24px}
+#marcas-aliadas{padding-block:clamp(32px,3vw,48px)}
+#marcas-aliadas .brand-marquee{margin-top:24px}
+#marcas-aliadas + #contacto{padding-top:36px}

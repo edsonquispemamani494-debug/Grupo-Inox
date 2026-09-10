@@ -1,24 +1,5 @@
 // JavaScript independiente de la página Nosotros.
 document.addEventListener('DOMContentLoaded',()=>{
-  const aboutVideo=document.querySelector('[data-about-video]');
-  const videoToggle=document.querySelector('[data-video-toggle]');
-  const videoLabel=document.querySelector('[data-video-label]');
-  const videoIcon=document.querySelector('[data-video-icon]');
-  if(aboutVideo && videoToggle){
-    const updateVideoControl=()=>{
-      videoLabel.textContent=aboutVideo.paused?'Reproducir video':'Pausar video';
-      videoIcon.textContent=aboutVideo.paused?'▶':'Ⅱ';
-    };
-    aboutVideo.addEventListener('play',updateVideoControl);
-    aboutVideo.addEventListener('pause',updateVideoControl);
-    videoToggle.addEventListener('click',()=>{
-      if(aboutVideo.paused)aboutVideo.play().catch(updateVideoControl);
-      else aboutVideo.pause();
-    });
-    aboutVideo.muted=true;
-    aboutVideo.play().catch(updateVideoControl);
-    updateVideoControl();
-  }
   const employeeDialog=document.querySelector('.employee-dialog');
   if(employeeDialog){
     let activeCard=null;

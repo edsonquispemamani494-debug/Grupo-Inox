@@ -43,15 +43,21 @@
 .maintenance-actions__list li:hover{color:#fff;border-color:var(--orange);background:var(--orange);box-shadow:0 12px 28px rgba(244,123,32,.25);transform:scale(1.12) rotate(3deg)}
 .attention-process h2{margin-bottom:65px}
 .attention-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:0;list-style:none}
-.attention-process__steps li{position:relative;display:flex;align-items:center;justify-content:center;min-height:74px;padding:12px 35px 12px 16px;color:var(--orange);font-size:1.08rem;font-weight:600;text-align:center;transition:color .3s ease,transform .3s ease}
-.attention-process__steps li:not(:last-child)::after{content:"→";position:absolute;right:-8px;color:var(--text-blue);font-size:1.25rem;transition:transform .3s ease,color .3s ease}
+.attention-process__steps li{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:74px;padding:12px 35px 12px 16px;color:var(--orange);font-size:1.08rem;font-weight:600;text-align:center;transition:color .3s ease,transform .3s ease}
+.attention-process__steps li small{display:block;max-width:220px;margin-top:12px;color:inherit;font-size:.78rem;font-weight:400;line-height:1.45;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s ease,visibility .3s ease,transform .3s ease}
+.attention-process__steps li:is(:hover,:focus-visible){color:var(--text-blue);transform:translateY(-6px)}
+.attention-process__steps li:is(:hover,:focus-visible) small{opacity:1;visibility:visible;transform:none}
+.attention-process__steps li:not(:last-child)::after{content:"→";position:absolute;top:22px;right:-8px;color:var(--text-blue);font-size:1.25rem;transition:transform .3s ease,color .3s ease}
 .attention-process__steps li span{position:relative;padding:12px 4px}
 .attention-process__steps li span::after{content:"";position:absolute;right:50%;bottom:3px;left:50%;height:2px;background:var(--orange);transition:right .3s ease,left .3s ease}
-.attention-process__steps li:hover{color:var(--text-blue);transform:translateY(-6px)}
 .attention-process__steps li:hover span::after{right:0;left:0}
 .attention-process__steps li:hover::after{color:var(--orange);transform:translateX(7px)}
 
 @media(max-width:900px){.services-intro__grid{grid-template-columns:1fr;gap:42px}.services-intro__image{min-height:420px}.maintenance-types__grid{gap:28px}.attention-process__steps{grid-template-columns:repeat(2,1fr);row-gap:28px}.attention-process__steps li:nth-child(2)::after{display:none}}
 @media(max-width:700px){.services-hero h1{font-size:clamp(2rem,9vw,3.4rem)!important;white-space:normal}.services-intro,.maintenance-actions{padding:82px 0}.maintenance-types{padding:78px 0 88px}.services-intro__copy p{margin-top:26px}.services-intro__image{min-height:330px;border-radius:0 58px 0 58px}.maintenance-types__title br{display:none}.maintenance-types__eyebrow{margin-bottom:45px}.maintenance-types__grid{grid-template-columns:1fr}.maintenance-actions__list{margin:55px 0 80px;gap:20px}.attention-process h2{margin-bottom:42px}}
-@media(max-width:480px){.services-intro__image{min-height:270px}.maintenance-card img{height:215px}.maintenance-card__body{padding:24px 22px 27px}.attention-process__steps{grid-template-columns:1fr}.attention-process__steps li{padding:12px 16px}.attention-process__steps li:not(:last-child)::after{right:50%;bottom:-16px;transform:translateX(50%) rotate(90deg)}.attention-process__steps li:hover::after{transform:translate(50%,7px) rotate(90deg)}}
+@media(max-width:480px){.services-intro__image{min-height:270px}.maintenance-card img{height:215px}.maintenance-card__body{padding:24px 22px 27px}.attention-process__steps{grid-template-columns:1fr}.attention-process__steps li{padding:12px 16px}.attention-process__steps li:not(:last-child)::after{top:auto;right:50%;bottom:-16px;transform:translateX(50%) rotate(90deg)}.attention-process__steps li:hover::after{transform:translate(50%,7px) rotate(90deg)}}
 @media(prefers-reduced-motion:reduce){.maintenance-card,.maintenance-card img,.maintenance-actions__list li,.attention-process__steps li,.attention-process__steps li::after,.attention-process__steps li span::after{transition:none}}
+
+/* Espaciado vertical compacto entre secciones. */
+.services-intro,.maintenance-types,.maintenance-actions,#contacto.section{padding-block:clamp(40px,4.5vw,64px)}
+.maintenance-actions__list{margin-top:40px;margin-bottom:56px}.attention-process h2{margin-bottom:36px}

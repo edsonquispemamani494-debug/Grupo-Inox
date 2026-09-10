@@ -92,3 +92,14 @@
 
 @media(max-width:900px){.management-services .services-work__grid{gap:80px 70px;padding-left:35px}.management-services .service-icon{left:-35px}}
 @media(max-width:650px){.management-services{padding:70px 0 95px}.management-services__heading{margin-bottom:90px}.management-services .services-work__grid{grid-template-columns:1fr;gap:90px;padding-left:28px}.management-services .service-icon-card{min-height:280px;padding:38px 28px 30px}.management-services .service-icon{left:-28px;width:82px;height:82px}.management-services .service-icon-card h3{font-size:1.4rem!important}}
+
+/* Espaciado vertical compacto entre secciones. */
+.services-intro,.services-work.management-services,.project-stages,#contacto.section{padding-block:clamp(40px,4.5vw,64px)}
+
+/* Iconos centrados sobre las tarjetas de gestión. */
+.management-services .services-work__grid{padding-inline:0}
+.management-services .service-icon-card{align-items:center;padding-top:76px}
+.management-services .service-icon{left:50%;transform:translateX(-50%)}
+.management-services .service-icon-card:hover .service-icon,
+.management-services .service-icon-card:focus-within .service-icon{transform:translate(-50%,-7px)}
+@media(max-width:650px){.management-services .service-icon-card{padding-top:66px}}

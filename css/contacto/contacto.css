@@ -2,11 +2,6 @@
   background:#fff;
 }
 
-
-/* =========================================================
-   HERO CONTACTO
-========================================================= */
-
 .contact-hero{
   padding:170px 0 86px;
   background:var(--blue-dark);
@@ -33,11 +28,6 @@
   color:rgba(255,255,255,.72);
   line-height:1.85;
 }
-
-
-/* =========================================================
-   SECCIÓN SUCURSALES
-========================================================= */
 
 .branch-section{
   padding:112px 0 130px;
@@ -94,21 +84,12 @@
   transform:translateY(-2px);
 }
 
-
-/* =========================================================
-   EXPERIENCIA MAPA
-========================================================= */
-
 .branch-experience{
   position:relative;
   display:grid;
   grid-template-columns:minmax(0,1fr) 0fr;
   gap:0;
 
-  /* CAMBIO:
-     Antes estaba en 720px.
-     Lo reducimos para que no genere tanto espacio vertical.
-  */
   min-height:620px;
 
   overflow:hidden;
@@ -129,27 +110,15 @@
   gap:64px;
 }
 
-
-/* =========================================================
-   PANEL MAPA BOLIVIA
-========================================================= */
-
 .bolivia-panel{
   min-width:0;
 
   display:flex;
 
-  /* CAMBIO PRINCIPAL:
-     Antes decía align-items:center
-     y eso centraba verticalmente el mapa.
-  */
   align-items:flex-start;
 
   justify-content:center;
 
-  /* CAMBIO:
-     quitamos el espacio superior innecesario.
-  */
   padding:0 0 54px;
 
   transition:
@@ -161,20 +130,10 @@
   transform:translateX(-2%);
 }
 
-
-/* =========================================================
-   CONTENEDOR DEL MAPA
-========================================================= */
-
 .map-stage{
   width:min(100%,620px);
   position:relative;
 }
-
-
-/* =========================================================
-   TEXTO SOBRE MAPA
-========================================================= */
 
 .map-caption{
   display:flex;
@@ -199,11 +158,6 @@
   color:var(--text-blue);
 }
 
-
-/* =========================================================
-   MAPA
-========================================================= */
-
 .map-wrap{
   position:relative;
 
@@ -223,10 +177,6 @@
 }
 
 
-/* =========================================================
-   FUENTE DEL MAPA
-========================================================= */
-
 .map-source{
   margin:14px 6px 0;
 
@@ -235,11 +185,6 @@
   font-size:.68rem!important;
   line-height:1.5;
 }
-
-
-/* =========================================================
-   MARCADORES DE SUCURSALES
-========================================================= */
 
 .branch-marker{
   position:absolute;
@@ -295,10 +240,6 @@
   color:#fff;
 }
 
-
-/* =========================================================
-   PUNTO NARANJA
-========================================================= */
 
 .marker-dot{
   position:relative;
@@ -367,10 +308,6 @@
 }
 
 
-/* =========================================================
-   POSICIÓN DE LAS SUCURSALES
-========================================================= */
-
 .marker-lapaz{
   left:16%;
   top:40%;
@@ -395,11 +332,6 @@
   left:46%;
   top:89%;
 }
-
-
-/* =========================================================
-   PANEL INFORMACIÓN SUCURSAL
-========================================================= */
 
 .branch-detail{
   min-width:0;
@@ -436,10 +368,6 @@
 }
 
 
-/* =========================================================
-   BOTÓN VOLVER
-========================================================= */
-
 .branch-back{
   display:inline-flex;
 
@@ -467,11 +395,6 @@
   font-size:1.1rem;
 }
 
-
-/* =========================================================
-   GOOGLE MAPS
-========================================================= */
-
 .branch-map-frame{
   overflow:hidden;
 
@@ -493,11 +416,6 @@
 
   display:block;
 }
-
-
-/* =========================================================
-   INFORMACIÓN DE SUCURSAL
-========================================================= */
 
 .branch-detail__content{
   padding-top:30px;
@@ -545,11 +463,6 @@
   letter-spacing:-.045em;
 }
 
-
-/* =========================================================
-   ESTADO SUCURSAL
-========================================================= */
-
 .branch-status{
   display:inline-flex;
 
@@ -585,10 +498,6 @@
   background:#5c946b;
 }
 
-
-/* =========================================================
-   DATOS CONTACTO
-========================================================= */
 
 .branch-contact-list{
   display:grid;
@@ -679,10 +588,6 @@
 }
 
 
-/* =========================================================
-   FORMULARIO
-========================================================= */
-
 .branch-form{
   padding-top:30px;
 }
@@ -721,11 +626,6 @@
 
   font-size:.78rem!important;
 }
-
-
-/* =========================================================
-   CAMPOS
-========================================================= */
 
 .branch-form__grid{
 
@@ -810,11 +710,6 @@
     0 0 0 3px rgba(13,59,102,.08);
 }
 
-
-/* =========================================================
-   BOTÓN ENVIAR
-========================================================= */
-
 .branch-submit{
 
   display:inline-flex;
@@ -870,11 +765,6 @@
 
   font-weight:700;
 }
-
-
-/* =========================================================
-   RESPONSIVE 1100px
-========================================================= */
 
 @media(max-width:1100px){
 
@@ -933,11 +823,6 @@
 
 }
 
-
-/* =========================================================
-   RESPONSIVE TABLET
-========================================================= */
-
 @media(max-width:820px){
 
   .contact-hero{
@@ -977,7 +862,6 @@
 
   .bolivia-panel{
 
-    /* mapa arriba también en tablet */
     align-items:flex-start;
 
     padding:0 0 44px;
@@ -1027,11 +911,6 @@
   }
 
 }
-
-
-/* =========================================================
-   RESPONSIVE CELULAR
-========================================================= */
 
 @media(max-width:540px){
 
@@ -1152,4 +1031,12 @@
     width:100%;
   }
 
+}
+
+
+@media(min-width:821px){
+  .branch-experience.is-open{overflow:clip}
+  .branch-experience.is-open .bolivia-panel{transform:none;padding-bottom:24px}
+  .branch-experience.is-open .map-stage{position:sticky;top:104px;align-self:flex-start}
+  .branch-experience.is-open .map-wrap{width:min(100%,570px,calc((100dvh - 136px)*2000/2208))}
 }

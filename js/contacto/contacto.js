@@ -65,13 +65,64 @@
   const addressEl = document.getElementById('branchAddress');
   const selectedBranch = document.getElementById('selectedBranch');
 
+  // Referencias aproximadas de las ciudades; el mapa mantiene la dirección de cada oficina.
+  const branchCoordinates = {
+    lapaz: [-16.4897, -68.1193],
+    elalto: [-16.5000, -68.1500],
+    cochabamba: [-17.3895, -66.1568],
+    santacruz: [-17.7833, -63.1821],
+    tarija: [-21.5355, -64.7296]
+  };
+  let manualBranchSelection = false;
+
+  function nearestBranch(latitude, longitude) {
+    const radians = value => value * Math.PI / 180;
+    let nearest = 'lapaz';
+    let shortest = Infinity;
+    Object.entries(branchCoordinates).forEach(([key, [lat, lng]]) => {
+      const a = Math.sin(radians(lat - latitude) / 2) ** 2
+        + Math.cos(radians(latitude)) * Math.cos(radians(lat))
+        * Math.sin(radians(lng - longitude) / 2) ** 2;
+      if (a < shortest) { shortest = a; nearest = key; }
+    });
+    return nearest;
+  }
+
+  function detectVisitorBranch() {
+    let initialBranch = 'lapaz';
+    try {
+      const previousBranch = sessionStorage.getItem('inox-contact-branch');
+      if (Object.hasOwn(branches, previousBranch)) initialBranch = previousBranch;
+    } catch { /* La selección funciona también sin almacenamiento disponible. */ }
+    const openAutomaticBranch = key => {
+      if (!manualBranchSelection) selectBranch(key, { automatic: true });
+    };
+    // Abre el panel sin esperar a la ubicación; después actualiza si corresponde.
+    openAutomaticBranch(initialBranch);
+    if (!window.isSecureContext || !navigator.geolocation) {
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      const valid = Number.isFinite(latitude) && Number.isFinite(longitude)
+        && Math.abs(latitude) <= 90 && Math.abs(longitude) <= 180;
+      if (valid) openAutomaticBranch(nearestBranch(latitude, longitude));
+    }, () => {}, {
+      enableHighAccuracy: false,
+      timeout: 10000,
+      maximumAge: 300000
+    });
+  }
+
   function googleEmbed(query) {
     return `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
   }
 
-  function selectBranch(key) {
+  function selectBranch(key, { automatic = false } = {}) {
     const branch = branches[key];
     if (!branch) return;
+    if (!automatic) manualBranchSelection = true;
+    try { sessionStorage.setItem('inox-contact-branch', key); } catch {}
 
     markers.forEach(marker => {
       const active = marker.dataset.branch === key;
@@ -93,19 +144,21 @@
     phoneEl.href = `tel:${branch.phoneHref}`;
     addressEl.textContent = branch.address;
     selectedBranch.value = branch.name;
-    googleMap.src = googleEmbed(branch.mapQuery);
+    const mapUrl = googleEmbed(branch.mapQuery);
+    if (googleMap.getAttribute('src') !== mapUrl) googleMap.src = mapUrl;
 
     experience.classList.add('is-open');
     detail.setAttribute('aria-hidden', 'false');
     feedback.textContent = '';
 
-    if (window.matchMedia('(max-width: 820px)').matches) {
+    if (!automatic && window.matchMedia('(max-width: 820px)').matches) {
       detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
   }
 
   function closeDetail() {
+    manualBranchSelection = true;
     experience.classList.remove('is-open');
     detail.setAttribute('aria-hidden', 'true');
     markers.forEach(marker => {
@@ -136,6 +189,7 @@
   });
 
   back?.addEventListener('click', closeDetail);
+  detectVisitorBranch();
 
   form?.addEventListener('submit', event => {
     event.preventDefault();

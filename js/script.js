@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Crea una segunda copia idéntica e independiente del catálogo principal.
   const primaryProductShowcase=document.getElementById('productos');
-  if(primaryProductShowcase && !document.getElementById('productos-2')){
+  if(primaryProductShowcase?.classList.contains('product-showcase') && !document.getElementById('productos-2')){
     const secondProductShowcase=primaryProductShowcase.cloneNode(true);
     secondProductShowcase.id='productos-2';
     secondProductShowcase.classList.add('product-showcase--emotions');
@@ -55,9 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if(sectorText) sectorText.textContent = sectors[sectorIndex][1];
     if(sectorCounter) sectorCounter.textContent = `${String(sectorIndex+1).padStart(2,'0')} / 05`;
   };
-  document.getElementById('sectorNext')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+1)%5;updateSector()});
-  document.getElementById('sectorPrev')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+4)%5;updateSector()});
+  let sectorTimer;
+  const startSectorAutoplay = () => {
+    clearInterval(sectorTimer);
+    if (!document.body.classList.contains('home-page') || !sectorTrack || document.hidden) return;
+    sectorTimer = setInterval(() => {
+      sectorIndex = (sectorIndex + 1) % sectors.length;
+      updateSector();
+    }, 5000);
+  };
+  document.getElementById('sectorNext')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+1)%sectors.length;updateSector();startSectorAutoplay()});
+  document.getElementById('sectorPrev')?.addEventListener('click',()=>{sectorIndex=(sectorIndex+sectors.length-1)%sectors.length;updateSector();startSectorAutoplay()});
   updateSector();
+  startSectorAutoplay();
+  document.addEventListener('visibilitychange', startSectorAutoplay);
 
   const initProductShowcase=productShowcase=>{
     const productShowcaseTrack=productShowcase.querySelector('.product-showcase__track');
@@ -67,6 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const productShowcaseDots=productShowcase.querySelector('.product-showcase__dots');
     if(!productShowcaseTrack || !productShowcaseSlider || !productShowcaseDots) return;
     const productCards=[...productShowcaseTrack.children];
+    const infiniteCatalog=productShowcase.dataset.infinite==='true';
+    const centeredCatalog=!productShowcase.classList.contains('product-showcase--emotions');
+    if(centeredCatalog) productShowcase.classList.add('product-showcase--centered');
+    else {
+      const controls=productShowcase.querySelector('.product-showcase__controls');
+      if(controls) productShowcaseSlider.appendChild(controls);
+    }
+    productCards.forEach(card=>{
+      const categoryLink=card.querySelector('.product-showcase__content a');
+      if(!categoryLink) return;
+      const imageLink=document.createElement('a');
+      imageLink.className='product-showcase__image-link';
+      imageLink.href=categoryLink.href;
+      imageLink.setAttribute('aria-label',`Ver productos: ${card.querySelector('h3')?.textContent || ''}`);
+      card.appendChild(imageLink);
+      categoryLink.tabIndex=-1;
+    });
     let activeProduct=productShowcase.classList.contains('product-showcase--emotions') && productCards.length>1?1:0;
     const isMobileProduct=()=>window.matchMedia('(max-width:767px)').matches;
 
@@ -83,21 +111,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const fitProductCards=()=>{
       if(productShowcase.classList.contains('product-showcase--emotions')){
         productShowcaseTrack.style.removeProperty('--product-open');
+        const width=productShowcaseSlider.clientWidth;
+        const gap=isMobileProduct()?20:Math.min(40,width*.03);
+        const catalogCenter=productShowcase.closest('.catalog-page') || document.body.classList.contains('catalog-page');
+        const centerWidth=isMobileProduct()?width:Math.min(catalogCenter?680:540,width*(catalogCenter?.58:.46));
+        const sideWidth=isMobileProduct()?width:(width-centerWidth-2*gap)/2;
+        productShowcase.style.setProperty('--emotion-center',`${centerWidth}px`);
+        productShowcase.style.setProperty('--emotion-side',`${sideWidth}px`);
+        productShowcase.style.setProperty('--emotion-step',`${(centerWidth+sideWidth)/2+gap}px`);
         return;
       }
       if(isMobileProduct()){
         productShowcaseTrack.style.removeProperty('--product-open');
         return;
       }
-      const inactiveCard=productCards.find((card,index)=>index!==activeProduct);
-      const closedWidth=inactiveCard?.getBoundingClientRect().width||0;
+      const widthProbe=document.createElement('div');
+      widthProbe.style.cssText='position:absolute;visibility:hidden;width:var(--product-closed);pointer-events:none';
+      productShowcaseTrack.appendChild(widthProbe);
+      const closedWidth=widthProbe.getBoundingClientRect().width;
+      widthProbe.remove();
       const trackStyles=getComputedStyle(productShowcaseTrack);
       const gap=parseFloat(trackStyles.columnGap)||0;
       const available=productShowcaseSlider.clientWidth-(closedWidth*(productCards.length-1))-(gap*(productCards.length-1));
       productShowcaseTrack.style.setProperty('--product-open',`${Math.max(220,available)}px`);
+      if(centeredCatalog){
+        const openWidth=Math.max(220,available);
+        const rightCount=Math.floor(productCards.length/2);
+        const leftCount=productCards.length-1-rightCount;
+        const sideSpace=(productShowcaseSlider.clientWidth-openWidth)/2;
+        const leftWidth=leftCount ? (sideSpace-leftCount*gap)/leftCount : 0;
+        const rightWidth=rightCount ? (sideSpace-rightCount*gap)/rightCount : 0;
+        productCards.forEach((card,index)=>{
+          let distance=(index-activeProduct+productCards.length)%productCards.length;
+          if(distance>Math.floor(productCards.length/2)) distance-=productCards.length;
+          const offset=distance===0 ? -openWidth/2 : distance>0
+            ? openWidth/2+gap+(distance-1)*(rightWidth+gap)
+            : -openWidth/2+distance*(leftWidth+gap);
+          card.style.setProperty('--card-width',`${distance<0?leftWidth:rightWidth}px`);
+          card.style.setProperty('--card-x',`${offset}px`);
+        });
+      }
     };
 
     const centerProduct=index=>{
+      if(!centeredCatalog) return;
+      if(centeredCatalog && !isMobileProduct()) return;
       const card=productCards[index];
       const mobile=isMobileProduct();
       const start=mobile?card.offsetTop:card.offsetLeft;
@@ -110,16 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const previousIndex=(index+productCards.length-1)%productCards.length;
       const nextIndex=(index+1)%productCards.length;
       productCards.forEach((card,i)=>{
+        if(emotionsMode){
+          let distance=(i-index+productCards.length)%productCards.length;
+          if(distance>productCards.length/2) distance-=productCards.length;
+          card.style.setProperty('--emotion-offset',Math.max(-2,Math.min(2,distance)));
+          card.inert=Math.abs(distance)>1;
+        }
         card.toggleAttribute('active',i===index);
         card.classList.toggle('is-prev',emotionsMode && i===previousIndex);
         card.classList.toggle('is-next',emotionsMode && i===nextIndex);
       });
       productDots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
-      if(productShowcasePrev) productShowcasePrev.disabled=index===0;
-      if(productShowcaseNext) productShowcaseNext.disabled=index===productCards.length-1;
+      if(productShowcasePrev) productShowcasePrev.disabled=!infiniteCatalog && index===0;
+      if(productShowcaseNext) productShowcaseNext.disabled=!infiniteCatalog && index===productCards.length-1;
     };
+    let productLinkReadyAt=0;
     function activateProduct(index,shouldScroll=false){
-      activeProduct=Math.min(Math.max(index,0),productCards.length-1);
+      if(!centeredCatalog && performance.now()<productLinkReadyAt) return;
+      if(index!==activeProduct) productLinkReadyAt=performance.now()+650;
+      activeProduct=infiniteCatalog ? (index%productCards.length+productCards.length)%productCards.length : Math.min(Math.max(index,0),productCards.length-1);
       updateProductUI(activeProduct);
       fitProductCards();
       if(shouldScroll && !productShowcase.classList.contains('product-showcase--emotions')) requestAnimationFrame(()=>centerProduct(activeProduct));
@@ -131,14 +198,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let hoverActivationLocked=false;
     productCards.forEach((card,index)=>{
       card.addEventListener('mouseenter',()=>{
-        if(!window.matchMedia('(hover:hover)').matches) return;
-        if(productShowcase.classList.contains('product-showcase--emotions')){
-          if(!hoverActivationLocked && index!==activeProduct){hoverActivationLocked=true;activateProduct(index,true)}
+        if(!window.matchMedia('(hover:hover)').matches || hoverActivationLocked) return;
+        // Una sola apertura por entrada, aunque las tarjetas pasen bajo el puntero.
+        hoverActivationLocked=true;
+        if(index!==activeProduct) activateProduct(index,true);
+      });
+      card.addEventListener('click',event=>{
+        if(index!==activeProduct){
+          event.preventDefault();
+          hoverActivationLocked=true;
+          activateProduct(index,true);
           return;
         }
-        activateProduct(index,true);
+        // Evita navegar mientras la imagen todavía se mueve hacia el centro.
+        if(performance.now()<productLinkReadyAt){event.preventDefault();return;}
+        if(!event.target.closest('a')) activateProduct(index,true);
       });
-      card.addEventListener('click',event=>{if(!event.target.closest('a')) activateProduct(index,true)});
     });
     productShowcaseSlider.addEventListener('mouseleave',()=>{hoverActivationLocked=false});
     let touchX=0;
@@ -163,41 +238,75 @@ document.addEventListener('DOMContentLoaded', () => {
   // Compatibilidad con el carrusel de la página independiente de Productos.
   let productIndex=0;
   const productTrack=document.getElementById('productTrack');
+  const productDots=document.getElementById('productDots');
+  const featuredProductCount=productTrack?.children.length||0;
   const updateProducts=()=>{
     if(!productTrack || !productTrack.children.length) return;
     const slide=productTrack.children[0];
-    productTrack.style.transform=`translateX(-${productIndex*(slide.getBoundingClientRect().width+20)}px)`;
+    const gap=parseFloat(getComputedStyle(productTrack).columnGap)||18;
+    productTrack.style.transform=`translateX(-${productIndex*(slide.getBoundingClientRect().width+gap)}px)`;
+    productTrack.querySelectorAll('.featured-product-card').forEach(card=>card.classList.remove('is-center'));
+    productTrack.children[productIndex+1]?.classList.add('is-center');
+    productDots?.querySelectorAll('button').forEach((dot,index)=>dot.classList.toggle('active',index===productIndex%featuredProductCount));
   };
   const nextProduct=()=>{
-    if(!productTrack) return;
-    productIndex=(productIndex+1)%productTrack.children.length;
+    if(!productTrack || !featuredProductCount) return;
+    productIndex=(productIndex+1)%featuredProductCount;
     updateProducts();
   };
   document.getElementById('productNext')?.addEventListener('click',nextProduct);
   document.getElementById('productPrev')?.addEventListener('click',()=>{
-    if(!productTrack) return;
-    productIndex=(productIndex+productTrack.children.length-1)%productTrack.children.length;
+    if(!productTrack || !featuredProductCount) return;
+    productIndex=(productIndex+featuredProductCount-1)%featuredProductCount;
     updateProducts();
   });
+  if(productTrack && productDots){
+    [...productTrack.children].forEach((slide,index)=>{
+      const dot=document.createElement('button');
+      dot.type='button';dot.className='featured-products__dot';
+      dot.setAttribute('aria-label',`Mostrar producto destacado ${index+1}`);
+      dot.addEventListener('click',()=>{productIndex=index;updateProducts()});
+      productDots.appendChild(dot);
+    });
+    [...productTrack.children].forEach(slide=>productTrack.appendChild(slide.cloneNode(true)));
+    updateProducts();
+    window.addEventListener('resize',updateProducts);
+    let productAutoplay=setInterval(nextProduct,5200);
+    productTrack.closest('.featured-products__viewport')?.addEventListener('mouseenter',()=>clearInterval(productAutoplay));
+    productTrack.closest('.featured-products__viewport')?.addEventListener('mouseleave',()=>{productAutoplay=setInterval(nextProduct,5200)});
+  }
 
+  document.querySelectorAll('.service-track').forEach(serviceTrack=>{
   let serviceIndex = 0;
-  const serviceTrack = document.getElementById('serviceTrack');
+  const serviceSection = serviceTrack.closest('section');
+  const serviceSelectors = serviceSection.querySelectorAll('[data-service]');
   const updateServices = () => {
     if(!serviceTrack || !serviceTrack.children.length) return;
     serviceTrack.style.transform = `translateX(-${serviceIndex * 100}%)`;
+    serviceSelectors.forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.service)===serviceIndex)));
+    [...serviceTrack.children].forEach((slide,index)=>{slide.inert=index!==serviceIndex;});
   };
   const nextService = () => {
     if(!serviceTrack) return;
     serviceIndex=(serviceIndex+1)%serviceTrack.children.length; updateServices();
   };
-  document.getElementById('serviceNext')?.addEventListener('click',nextService);
-  document.getElementById('servicePrev')?.addEventListener('click',()=>{
+  serviceSection.querySelector('#serviceNext')?.addEventListener('click',nextService);
+  serviceSection.querySelector('#servicePrev')?.addEventListener('click',()=>{
     if(!serviceTrack) return;
     serviceIndex=(serviceIndex+serviceTrack.children.length-1)%serviceTrack.children.length; updateServices();
   });
   let serviceTimer = serviceTrack ? setInterval(nextService, 4800) : null;
+  serviceSelectors.forEach(button=>button.addEventListener('click',()=>{
+    serviceIndex=Number(button.dataset.service);
+    updateServices();
+    clearInterval(serviceTimer);
+    serviceTimer=setInterval(nextService,4800);
+  }));
+  updateServices();
   serviceTrack?.closest('.service-carousel')?.addEventListener('mouseenter',()=>{ if(serviceTimer){clearInterval(serviceTimer);serviceTimer=null;} });
   serviceTrack?.closest('.service-carousel')?.addEventListener('mouseleave',()=>{ if(!serviceTimer) serviceTimer=setInterval(nextService,4800); });
+
+  });
 
   const projects=[
     {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Implementación de soluciones y componentes orientados a fortalecer la operación industrial y sus procesos.',logo:'PACEÑA',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
