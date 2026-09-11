@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/index/index.css">
 </head>
 <body class="home-page">
 
@@ -71,11 +73,11 @@
 
         <div class="carousel-viewport reveal">
           <div class="sector-track" id="sectorTrack">
-            <div class="sector-slide" data-label="Petrolero"><img src="https://www.foronuclear.org/wp-content/uploads/2010/06/petroleo.jpg" alt="Instalación del sector petrolero" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
-            <div class="sector-slide" data-label="Minero"><img src="https://citicheavyindustries.com.ar/products/mine-mill_01.jpg" alt="Operación del sector minero" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
-            <div class="sector-slide" data-label="Alimenticio"><img src="https://sypysa.com/wp-content/uploads/2022/04/industria-alimenticia-sypysa-e1649440157384.png" alt="Planta de procesamiento alimenticio" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
-            <div class="sector-slide" data-label="Farmacéutico"><img src="https://www.mundofarmaceutico.es/documents/186042076/187070849/Industria+farmac%C3%A9utica.jpg/4e11a6a6-1005-9e6c-c30a-4c90f16e7764?t=1732092755408" alt="Industria farmacéutica" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
-            <div class="sector-slide" data-label="Manufactura"><img src="https://kaizen.com/wp-content/uploads/2024/05/capa-22-scaled.webp" alt="Planta de manufactura industrial" onerror="this.onerror=null;this.src='images/index/planta-industrial.png'"></div>
+            <div class="sector-slide" data-label="Petrolero"><img src="https://www.foronuclear.org/wp-content/uploads/2010/06/petroleo.jpg" alt="Instalación del sector petrolero" data-fallback-src="images/index/planta-industrial.png"></div>
+            <div class="sector-slide" data-label="Minero"><img src="https://citicheavyindustries.com.ar/products/mine-mill_01.jpg" alt="Operación del sector minero" data-fallback-src="images/index/planta-industrial.png"></div>
+            <div class="sector-slide" data-label="Alimenticio"><img src="https://sypysa.com/wp-content/uploads/2022/04/industria-alimenticia-sypysa-e1649440157384.png" alt="Planta de procesamiento alimenticio" data-fallback-src="images/index/planta-industrial.png"></div>
+            <div class="sector-slide" data-label="Farmacéutico"><img src="https://www.mundofarmaceutico.es/documents/186042076/187070849/Industria+farmac%C3%A9utica.jpg/4e11a6a6-1005-9e6c-c30a-4c90f16e7764?t=1732092755408" alt="Industria farmacéutica" data-fallback-src="images/index/planta-industrial.png"></div>
+            <div class="sector-slide" data-label="Manufactura"><img src="https://kaizen.com/wp-content/uploads/2024/05/capa-22-scaled.webp" alt="Planta de manufactura industrial" data-fallback-src="images/index/planta-industrial.png"></div>
           </div>
         </div>
       </div>
@@ -94,15 +96,15 @@
       <div class="product-showcase__slider reveal" id="productShowcaseSlider" tabindex="0" aria-label="Carrusel de productos">
         <div class="product-showcase__track" id="productShowcaseTrack">
           <article class="product-showcase__card" active><img class="product-showcase__bg" src="images/productos/barras.png" alt="Barras industriales"><div class="product-showcase__content"><div><small>Catálogo industrial</small><h3>Barras</h3><p>Soluciones en barras para aplicaciones y fabricación industrial.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
-          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Valve.jpg?width=1280" alt="Válvulas industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Control de fluidos</small><h3>Válvulas</h3><p>Componentes para apertura, cierre y regulación de fluidos.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
-          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heavy-duty-tank-weld-ferrule.jpg?width=1280" alt="Accesorios industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Componentes</small><h3>Accesorios</h3><p>Elementos complementarios para instalaciones industriales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Valve.jpg?width=1280" alt="Válvulas industriales" data-fallback-src="images/index/catalogo-industrial.png"><div class="product-showcase__content"><div><small>Control de fluidos</small><h3>Válvulas</h3><p>Componentes para apertura, cierre y regulación de fluidos.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heavy-duty-tank-weld-ferrule.jpg?width=1280" alt="Accesorios industriales" data-fallback-src="images/index/catalogo-industrial.png"><div class="product-showcase__content"><div><small>Componentes</small><h3>Accesorios</h3><p>Elementos complementarios para instalaciones industriales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
           <article class="product-showcase__card"><img class="product-showcase__bg" src="images/productos/controles.png" alt="Controles industriales"><div class="product-showcase__content"><div><small>Instrumentación</small><h3>Controles</h3><p>Equipos de medición, supervisión y control de procesos.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
           <article class="product-showcase__card"><img class="product-showcase__bg" src="images/productos/sello mecanico doble.png" alt="Empaques industriales"><div class="product-showcase__content"><div><small>Sellado industrial</small><h3>Empaques</h3><p>Soluciones de sellado y protección para distintas aplicaciones.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
           <article class="product-showcase__card"><img class="product-showcase__bg" src="images/productos/planchas.png" alt="Planchas de acero"><div class="product-showcase__content"><div><small>Acero inoxidable</small><h3>Planchas</h3><p>Materiales para fabricación, construcción y procesos industriales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
-          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gas%20cylinders.JPG?width=1280" alt="Cilindros industriales" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Suministro industrial</small><h3>Cilindros</h3><p>Cilindros para usos técnicos y necesidades de operación.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
-          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Welding%20equipment%20-%20panoramio.jpg?width=1280" alt="Equipos de soldadura" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Equipamiento</small><h3>Soldadura</h3><p>Equipos y suministros para trabajos de soldadura industrial.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gas%20cylinders.JPG?width=1280" alt="Cilindros industriales" data-fallback-src="images/index/catalogo-industrial.png"><div class="product-showcase__content"><div><small>Suministro industrial</small><h3>Cilindros</h3><p>Cilindros para usos técnicos y necesidades de operación.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Welding%20equipment%20-%20panoramio.jpg?width=1280" alt="Equipos de soldadura" data-fallback-src="images/index/catalogo-industrial.png"><div class="product-showcase__content"><div><small>Equipamiento</small><h3>Soldadura</h3><p>Equipos y suministros para trabajos de soldadura industrial.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
           <article class="product-showcase__card"><img class="product-showcase__bg" src="images/productos/sellos mecanico.png" alt="Sellos mecánicos"><div class="product-showcase__content"><div><small>Sellado</small><h3>Sellos mecánicos</h3><p>Sistemas de sellado para equipos rotativos de alta exigencia.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
-          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Stainless%20steel%20railing.jpg?width=1280" alt="Barandas metálicas" onerror="this.onerror=null;this.src='images/index/catalogo-industrial.png'"><div class="product-showcase__content"><div><small>Fabricación</small><h3>Barandas</h3><p>Soluciones para proyectos industriales y comerciales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
+          <article class="product-showcase__card"><img class="product-showcase__bg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Stainless%20steel%20railing.jpg?width=1280" alt="Barandas metálicas" data-fallback-src="images/index/catalogo-industrial.png"><div class="product-showcase__content"><div><small>Fabricación</small><h3>Barandas</h3><p>Soluciones para proyectos industriales y comerciales.</p><a href="html/productos/productos.html">Ver categoría</a></div></div></article>
         </div>
       </div>
       <div class="product-showcase__dots" id="productShowcaseDots" aria-label="Seleccionar producto"></div>
@@ -275,12 +277,12 @@
           <p class="muted" id="projectText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Desarrollo de soluciones orientadas a optimizar procesos y responder a exigencias industriales.</p>
           <div class="project-nav">
             <button class="round-btn" id="projectPrev">←</button>
-            <div class="project-logo" id="projectLogo">PACEÑA</div>
+            <a class="project-logo" id="projectLogo" href="html/proyectos/proyectos.html#proyecto-1" aria-label="Ver el proyecto PACEÑA"><img src="images/proyectos/paceña.png" alt="Logo de PACEÑA" decoding="async"></a>
             <button class="round-btn" id="projectNext">→</button>
           </div>
         </div>
         <div class="project-image reveal">
-          <img id="projectImage" src="https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg" alt="Proyecto industrial Paceña" onerror="this.onerror=null;this.src='images/index/proyecto-industrial.png'">
+          <img id="projectImage" src="https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg" alt="Proyecto industrial Paceña" data-fallback-src="images/index/proyecto-industrial.png">
         </div>
       </div>
     </div>
@@ -325,7 +327,9 @@
 </main>
 
 <div id="site-footer"></div>
+
+
 <script src="js/components.js"></script>
-<script src="js/script.js"></script>
+<script src="js/index/index.js"></script>
 </body>
 </html>

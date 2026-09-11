@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | Grupo Inox S.R.L.</title>
+  <meta name="description" content="Información sobre productos industriales de Grupo Inox S.R.L.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/productos/detalle.css">
+</head>
+<body class="product-detail-page">
+  <div id="site-header"></div>
+  <main>
+    <section class="product-detail-hero" data-header-hero aria-labelledby="productTitle">
+      <div class="container product-detail-hero__grid">
+        <div class="product-detail-hero__copy">
+          <a class="product-detail-back" href="productos.html">← Volver al catálogo</a>
+          <div class="eyebrow" id="productEyebrow">Barras industriales</div>
+          <h1 id="productTitle">Barras</h1>
+          <p id="productIntro">Barras y perfiles de acero inoxidable para fabricación, montaje y mantenimiento industrial.</p>
+        </div>
+        <div class="product-detail-hero__visual">
+          <img id="productImage" src="../../images/productos/barras.png" alt="Barras">
+        </div>
+      </div>
+    </section>
+
+    <section class="product-detail-catalog" aria-labelledby="productTypesTitle">
+      <div class="container">
+        <div class="product-detail-catalog__head">
+          <h2 id="productTypesTitle">Explora nuestros<br>tipos de barras</h2>
+        </div>
+        <div class="product-type-grid" id="productTypes"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-copy reveal">
+        <div class="eyebrow">Hablemos</div>
+        <h2>TRABAJA<br>CON NOSOTROS</h2>
+        <div class="quote">Solicita tu cotización.</div>
+        <p class="muted">Impulsa tus proyectos con nosotros. Cuéntanos qué necesitas y nuestro equipo podrá orientarte.</p>
+      </div>
+
+      <form class="form-box reveal" id="contactForm">
+        <div class="form-row">
+          <label for="name">Nombre</label>
+          <input id="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Correo</label>
+          <input id="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="company">Empresa</label>
+          <input id="company" type="text">
+        </div>
+        <div class="form-row">
+          <label for="service">Servicio</label>
+          <select id="service">
+            <option>Selecciona una opción</option>
+            <option>Productos industriales</option>
+            <option>Mantenimiento</option>
+            <option>Ingeniería</option>
+            <option>Cotización general</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-arrow" type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+  </main>
+  <div id="site-footer"></div>
+<script src="../../js/components.js"></script>
+<script src="../../js/productos/detalle.js"></script>
+</body>
+</html>

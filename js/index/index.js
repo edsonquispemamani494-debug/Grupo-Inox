@@ -1,4 +1,13 @@
 // Comportamiento independiente de esta página.
+// Conserva las imágenes de respaldo sin JavaScript dentro del HTML.
+document.querySelectorAll('img[data-fallback-src]').forEach(image => {
+  const fallback = () => {
+    image.removeEventListener('error', fallback);
+    image.src = image.dataset.fallbackSrc;
+  };
+  image.addEventListener('error', fallback);
+  if (image.complete && image.naturalWidth === 0) fallback();
+});
 function initIndustrialCursor() {
   const motion = window.matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
   const cursor = document.createElement('div');
@@ -345,9 +354,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const projects=[
-    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Implementación de soluciones y componentes orientados a fortalecer la operación industrial y sus procesos.',logo:'PACEÑA',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
-    {name:'SOBOCE',category:'Industria cementera · Suministro industrial',text:'Suministro especializado para aplicaciones industriales con énfasis en confiabilidad y continuidad operativa.',logo:'SOBOCE',image:'https://tinformas.com/wp-content/uploads/2026/07/Cemento-Eco-Plus-Soboce.jpg'},
-    {name:'YPFB',category:'Energía · Soluciones industriales',text:'Soluciones aplicadas a requerimientos técnicos de infraestructura y procesos del sector energético.',logo:'YPFB',image:'https://lavozdetarija.com/wp-content/uploads/2020/05/bolivia_ypfb_13.jpg'}
+    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Implementación de soluciones y componentes orientados a fortalecer la operación industrial y sus procesos.',logo:'images/proyectos/paceña.png',anchor:'proyecto-1',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
+    {name:'SOBOCE',category:'Industria cementera · Suministro industrial',text:'Suministro especializado para aplicaciones industriales con énfasis en confiabilidad y continuidad operativa.',logo:'images/proyectos/soboce.png',anchor:'proyecto-2',image:'https://tinformas.com/wp-content/uploads/2026/07/Cemento-Eco-Plus-Soboce.jpg'},
+    {name:'YPFB',category:'Energía · Soluciones industriales',text:'Soluciones aplicadas a requerimientos técnicos de infraestructura y procesos del sector energético.',logo:'images/proyectos/ypfb.webp',anchor:'proyecto-3',image:'https://lavozdetarija.com/wp-content/uploads/2020/05/bolivia_ypfb_13.jpg'}
   ];
   let projectIndex=0;
   let projectChangeToken=0;
@@ -356,7 +365,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const p=projects[projectIndex]; name.textContent=p.name;
     document.getElementById('projectCategory').textContent=p.category;
     document.getElementById('projectText').textContent=p.text;
-    document.getElementById('projectLogo').textContent=p.logo;
+    const projectLogo=document.getElementById('projectLogo');
+    const projectLogoImage=projectLogo.querySelector('img');
+    projectLogo.href=`html/proyectos/proyectos.html#${p.anchor}`;
+    projectLogo.setAttribute('aria-label',`Ver el proyecto ${p.name}`);
+    projectLogoImage.alt=`Logo de ${p.name}`;
+    projectLogoImage.src=p.logo;
     const projectImage=document.getElementById('projectImage');
     const projectFrame=projectImage.closest('.project-image');
     const currentToken=++projectChangeToken;
