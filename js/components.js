@@ -103,8 +103,10 @@ async function initSharedComponents() {
     });
   });
 
+  const footerYear = document.querySelector('[data-footer-year]');
+  if (footerYear) footerYear.textContent = String(new Date().getFullYear());
+
   initSharedHeader();
 }
 
 initSharedComponents();
-

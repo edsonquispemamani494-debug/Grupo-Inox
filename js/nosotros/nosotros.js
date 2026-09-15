@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
   const sectors = [
-    ['PETROLERO','Soluciones y suministros confiables para operaciones de alta exigencia.'],
+    ['PETROLERO','Suministramos componentes para la conducción y el control de fluidos, con orientación técnica para las necesidades del sector petrolero.'],
     ['MINERO','Componentes y soporte para procesos mineros, conducción y control de fluidos.'],
-    ['ALIMENTICIO','Equipamiento orientado a higiene, precisión y continuidad de procesos.'],
+    ['ALIMENTICIO','Equipamiento orientado a la higiene, la precisión y la continuidad de los procesos.'],
     ['FARMACÉUTICO','Soluciones de alto estándar para instalaciones y procesos especializados.'],
     ['MANUFACTURA','Productos y servicios para optimizar la confiabilidad de planta.']
   ];
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const projects=[
-    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Implementación de soluciones y componentes orientados a fortalecer la operación industrial y sus procesos.',logo:'PACEÑA',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
+    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Suministro de componentes y soluciones para apoyar la operación de plantas de la industria alimenticia.',logo:'PACEÑA',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
     {name:'SOBOCE',category:'Industria cementera · Suministro industrial',text:'Suministro especializado para aplicaciones industriales con énfasis en confiabilidad y continuidad operativa.',logo:'SOBOCE',image:'https://tinformas.com/wp-content/uploads/2026/07/Cemento-Eco-Plus-Soboce.jpg'},
     {name:'YPFB',category:'Energía · Soluciones industriales',text:'Soluciones aplicadas a requerimientos técnicos de infraestructura y procesos del sector energético.',logo:'YPFB',image:'https://lavozdetarija.com/wp-content/uploads/2020/05/bolivia_ypfb_13.jpg'}
   ];
@@ -418,9 +418,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(employeeDialog){
     let activeCard=null;
     const descriptions={
-      'Gerente Financiero':'Planifica los recursos financieros, supervisa presupuestos y analiza resultados para apoyar las decisiones y el crecimiento de la empresa.',
-      'Administrador La Paz':'Coordina las operaciones de la sede de La Paz, organiza los recursos y acompaña al equipo para brindar una atención eficiente a los clientes.',
-      'Director de Marketing':'Desarrolla estrategias de comunicación, coordina campañas y presenta las soluciones de la empresa para conectar con nuevos clientes.',
+      'Gerente financiero':'Planifica los recursos financieros, supervisa presupuestos y analiza resultados para apoyar las decisiones y el crecimiento de la empresa.',
+      'Administrador de La Paz':'Coordina las operaciones de la sede de La Paz, organiza los recursos y acompaña al equipo para brindar una atención eficiente a los clientes.',
+      'Directora de marketing':'Desarrolla estrategias de comunicación, coordina campañas y presenta las soluciones de la empresa para conectar con nuevos clientes.',
       'Administrador':'Organiza las actividades diarias, coordina los recursos y da seguimiento a los procesos para apoyar al equipo y atender las necesidades de los clientes.'
     };
     document.querySelectorAll('.team-card').forEach(card=>{

@@ -1,0 +1,97 @@
+/* Tipografia editorial: solo heroes y textos generales de seccion.
+   Los componentes conservan sus estilos originales en las hojas de cada pagina.
+   No aplicar reglas globales a body, encabezados, parrafos o controles. */
+@layer typography {
+  :root {
+    --font-title: clamp(2rem, 4.5vw, 4rem);
+    --font-subtitle: clamp(1.5rem, 2.4vw, 2rem);
+    --font-content: 1rem;
+    /* Colores de texto de css/index/index.css. No cambian fondos ni componentes. */
+    --editorial-blue: #164980;
+    --editorial-orange: #f47b20;
+  }
+
+  main > :is(.hero, .internal-hero, .about-hero, .catalog-hero,
+             .projects-hero, .product-detail-hero, .contact-hero) h1 {
+    font-size: var(--font-title) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -.02em !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+  }
+
+  main :is(
+    .section-head h2,
+    .about-copy > h2,
+    .about-heading > h2,
+    .purpose-copy > h2,
+    .values-heading > h2,
+    .team-heading > h2,
+    .brands .section-title,
+    .services-intro__copy > h2,
+    .services-work__title,
+    .project-stages__title,
+    .management-services__heading > h2,
+    .maintenance-types__title,
+    .maintenance-actions__title,
+    .advisory-services__title,
+    .advisory-process__title,
+    .project-collection-intro > h2,
+    .branch-intro h2
+  ) {
+    /* Variables limitadas al titulo para conservar sus acentos de color. */
+    --text-blue: var(--editorial-blue) !important;
+    --blue: var(--editorial-blue) !important;
+    --orange: var(--editorial-orange) !important;
+    color: var(--editorial-blue) !important;
+    font-size: var(--font-subtitle) !important;
+    line-height: 1.4 !important;
+    letter-spacing: normal !important;
+    text-transform: uppercase !important;
+  }
+
+  main :is(
+    .about-copy > p,
+    .purpose-copy > p,
+    .services-intro__copy > p,
+    .management-services__heading > p,
+    .project-story__heading > p
+  ) {
+    color: var(--editorial-blue) !important;
+    font-size: var(--font-content) !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Rotulos y textos introductorios; nunca etiquetas de tarjetas o controles. */
+  main :is(
+    .section-head .eyebrow,
+    .about-copy > .eyebrow,
+    .about-heading > .about-kicker,
+    .values-heading > span,
+    .team-heading > p,
+    .management-services__heading > p,
+    .maintenance-types__eyebrow,
+    .advisory-process__eyebrow,
+    .project-collection-intro > .eyebrow,
+    .branch-intro .eyebrow
+  ) {
+    color: var(--editorial-orange) !important;
+  }
+
+  main > .project-stages > .container > .project-stages__subtitle {
+    color: var(--editorial-blue) !important;
+  }
+
+  /* Encabezados seleccionados y cabecera del formulario en todas las paginas. */
+  .section-heading-size,
+  main .contact-copy > h2 {
+    font-size: var(--font-subtitle) !important;
+    line-height: 1.4 !important;
+  }
+
+  .section-label-size,
+  main .contact-copy > .eyebrow {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+}

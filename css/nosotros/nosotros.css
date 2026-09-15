@@ -876,7 +876,7 @@ html.industrial-cursor-active{
 .team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,6vw,80px);max-width:1140px;margin-inline:auto}
 .team-card{position:relative;aspect-ratio:5/7;overflow:hidden;background:#e5e7e9;box-shadow:2px 2px 2px rgba(0,0,0,.2)}
 .team-card img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.team-card::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(244,123,32,.65));pointer-events:none}
+.team-card::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(22,73,128,.85));pointer-events:none}
 .team-card-copy{position:absolute;z-index:1;bottom:0;left:0;right:0;padding:12px 8px;color:#fff}
 .team-card-copy h3{margin:0 0 5px;font-size:clamp(16px,2vw,24px)!important;line-height:1.2}
 .team-card-copy p{margin:0;font-size:clamp(10px,1vw,13px);line-height:1.4}

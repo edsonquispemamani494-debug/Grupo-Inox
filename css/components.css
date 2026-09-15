@@ -139,29 +139,31 @@
 .header .has-submenu:hover .submenu-toggle,
 .header .has-submenu:focus-within .submenu-toggle,
 .header .has-submenu.submenu-open .submenu-toggle{color:var(--orange)}
-footer{background:#061a2c;color:#fff;padding:78px 0 24px}
-.footer-grid{
-      display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:56px
-    }
-.footer-logo{font-size:1.25rem;font-weight:800;margin-bottom:20px}
-.socials{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.socials a{
-      display:grid;place-items:center;width:44px;height:44px;
-      border-radius:8px;transition:transform .2s ease;
-    }
-.socials img{width:36px;height:36px;object-fit:contain}
-.socials a:hover{transform:translateY(-3px)}
-.socials a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
-.footer-col h4{font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.48);margin:0 0 20px}
-.footer-col a,
-.footer-col p{
-      display:block;margin:0 0 12px;color:rgba(255,255,255,.78);font-size:.9rem
-    }
-.copyright{
-      margin-top:60px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);
-      color:rgba(255,255,255,.45);font-size:.78rem
-    }
-
+/* Footer: navegación y contacto compartidos en todas las páginas. */
+.site-footer{background:#164980;color:#fff;padding:48px 0 26px}
+.site-footer .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:64px}
+.site-footer .footer-grid>*{min-width:0}
+.site-footer .footer-logo{display:block;width:220px;max-width:100%;margin-bottom:34px}
+.site-footer .footer-logo img{display:block;width:100%;height:auto;object-fit:contain}
+.site-footer .footer-social{display:flex;align-items:center;gap:26px}
+.site-footer .footer-social a{display:block;width:34px;height:34px;transition:transform .2s ease,filter .2s ease}
+.site-footer .footer-social img{display:block;width:100%;height:100%;object-fit:contain}
+.site-footer .footer-social a:hover{transform:scale(1.12);filter:brightness(1.2)}
+.site-footer .footer-col h2{margin:0 0 18px;font-size:14px!important;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);font-weight:800}
+.site-footer .footer-col ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.site-footer .footer-col li{margin:0;padding:0;font-size:14px;line-height:1.5}
+.site-footer .footer-col a,.site-footer .footer-col span{display:inline-block;font-size:14px;line-height:1.5;color:rgba(255,255,255,.9);padding-block:3px}
+.site-footer a{text-decoration:none;transition:color .2s ease}
+.site-footer a:hover{text-decoration:none;color:#f47b20}
+.site-footer a:focus-visible{outline:2px solid #f47b20;outline-offset:4px;border-radius:3px}
+.site-footer .footer-bottom{display:flex;align-items:center;gap:16px;margin-top:62px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+.site-footer .copyright{margin:0;padding:0;border:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.52)}
+@media(max-width:1100px){.site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px}}
+@media(max-width:600px){
+  .site-footer{padding-top:36px}
+  .site-footer .footer-grid{grid-template-columns:1fr;gap:28px}
+  .site-footer .footer-bottom{align-items:flex-start;flex-direction:column;margin-top:36px}
+}
 /* Entrada compartida de los heroes; Nosotros usa un hero independiente. */
 @keyframes shared-hero-media-entry{from{transform:scale(1.06)}to{transform:scale(1)}}
 @keyframes shared-hero-content-entry{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -203,15 +205,10 @@ footer{background:#061a2c;color:#fff;padding:78px 0 24px}
 .has-submenu.submenu-open .submenu-services{max-height:380px;padding:8px 4px;margin-top:8px}
 .menu-btn{display:block;position:relative;z-index:4}
 .header.scrolled .menu-btn{color:var(--text-blue)}
-.footer-grid{grid-template-columns:1fr 1fr}
+
 }
 @media(max-width:640px){
 .header-inner{height:74px}
-.footer-grid{grid-template-columns:1fr}
+
 }
-.footer-col h4,
-.footer-col a,
-.footer-col p,
-.copyright{
-  font-size:14px !important;
-}
+

@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/productos/productos.css">
+  <link rel="stylesheet" href="../../css/productos/tienda.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/spacing.css">
 </head>
 <body class="catalog-page">
 <div id="site-header"></div>
@@ -17,7 +20,7 @@
       <div class="catalog-hero-copy">
         <div class="eyebrow">Catálogo industrial</div>
         <h1 id="catalog-hero-title">Soluciones y<br>suministros para la<br>industria</h1>
-        <p>Encuentra productos especializados...</p>
+        <p>Encuentra productos y suministros para fabricación, mantenimiento y control de procesos industriales.</p>
       </div>
     </div>
   </section>
@@ -25,7 +28,7 @@
   <section class="product-showcase product-showcase--emotions" id="productos-2" data-infinite="true">
     <div class="container">
       <div class="product-showcase__head reveal">
-        <div><div class="eyebrow">Catálogo industrial</div><h2>Explora nuestras<br>categorías</h2></div>
+        <div><div class="eyebrow section-label-size">Catálogo industrial</div><h2 class="section-heading-size">Explora nuestras<br>categorías</h2></div>
         <div class="product-showcase__controls">
           <button class="product-showcase__nav" aria-label="Producto anterior">‹</button>
           <button class="product-showcase__nav" aria-label="Producto siguiente">›</button>
@@ -52,8 +55,8 @@
   <section class="featured-products" id="productos-destacados" aria-labelledby="featured-products-title">
     <div class="container">
       <div class="featured-products__head">
-        <h2 id="featured-products-title">Productos<br>destacados</h2>
-        <a href="#productos" class="featured-products__all">Ver todos <span aria-hidden="true">→</span></a>
+        <h2 id="featured-products-title" class="section-heading-size">Productos<br>destacados</h2>
+        <a href="#productos-2" class="featured-products__all">Ver todos <span aria-hidden="true">→</span></a>
       </div>
       <div class="featured-products__viewport" aria-label="Carrusel de productos destacados">
         <div class="featured-products__track" id="productTrack">
@@ -91,28 +94,14 @@
     </div>
   </section>
 
-  <section class="catalog-categories" id="productos">
-    <div class="container">
-      <h2>Explora nuestras<br>categorías</h2>
-      <div class="category-grid">
-        <article class="category-tile" id="barras"><div class="category-tile-copy"><h3>Barras</h3><p>Soluciones en barras para aplicaciones, fabricación y requerimientos industriales.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Barras">Consultar productos</a></div><img src="../../images/productos/barras.png" alt="Barras y perfiles industriales" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="valvulas"><div class="category-tile-copy"><h3>Válvulas</h3><p>Componentes para apertura, cierre, regulación y control de fluidos.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Válvulas">Consultar productos</a></div><img src="../../images/productos/BARRAS 1.png" alt="" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="accesorios"><div class="category-tile-copy"><h3>Accesorios</h3><p>Accesorios y componentes complementarios para instalaciones industriales.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Accesorios">Consultar productos</a></div><img src="../../images/productos/BARRAS 1.png" alt="" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="controles"><div class="category-tile-copy"><h3>Controles</h3><p>Equipos destinados a medición, supervisión y control de procesos.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Controles">Consultar productos</a></div><img src="../../images/productos/controles.png" alt="Instrumentos de control industrial" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="categoria-4"><div class="category-tile-copy"><h3>Empaques</h3><p>Soluciones de sellado y protección para distintas aplicaciones industriales.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Empaques">Consultar productos</a></div><img src="../../images/productos/sello mecanico doble.png" alt="Componentes de sellado industrial" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="planchas"><div class="category-tile-copy"><h3>Planchas</h3><p>Planchas para fabricación, construcción y procesos industriales.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Planchas">Consultar productos</a></div><img src="../../images/productos/planchas.png" alt="Planchas metálicas industriales" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="categoria-8"><div class="category-tile-copy"><h3>Sellos mecánicos</h3><p>Sistemas de sellado para equipos rotativos y aplicaciones de alta exigencia.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Sellos mecánicos">Consultar productos</a></div><img src="../../images/productos/sellos mecanico.png" alt="Sellos mecánicos industriales" loading="lazy" width="318" height="267"></article>
-        <article class="category-tile" id="categoria-9"><div class="category-tile-copy"><h3>Barandas</h3><p>Soluciones y fabricación de barandas para proyectos industriales y comerciales.</p><a class="btn btn-primary btn-arrow" href="#contacto" aria-label="Consultar Barandas">Consultar productos</a></div><img src="../../images/productos/barras.png" alt="" loading="lazy" width="318" height="267"></article>
-      </div>
-    </div>
-  </section>
+  
 
   
   <section class="section" id="contacto">
     <div class="container contact-grid">
       <div class="contact-copy reveal">
-        <div class="eyebrow">Hablemos</div>
-        <h2>TRABAJA<br>CON NOSOTROS</h2>
+        <div class="eyebrow section-label-size">Hablemos</div>
+        <h2 class="section-heading-size">TRABAJA<br>CON NOSOTROS</h2>
         <div class="quote">Solicita tu cotización.</div>
         <p class="muted">Impulsa tus proyectos con nosotros. Cuéntanos qué necesitas y nuestro equipo podrá orientarte.</p>
       </div>
@@ -147,5 +136,8 @@
 </main>
 <div id="site-footer"></div>
 <script src="../../js/components.js"></script>
+<script src="../../js/productos/catalogo-data.js"></script>
 <script src="../../js/productos/productos.js"></script>
+<script src="../../js/productos/tienda.js"></script>
 </body></html>
+

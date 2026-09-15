@@ -1,47 +1,50 @@
-<footer>
+<footer class="site-footer" aria-label="Pie de página">
   <div class="container">
     <div class="footer-grid">
-
-      <div>
-        <div class="footer-logo">
-          <a href="index.html">
-            <img src="images/LOGO-BLANCO.png" alt="Grupo Inox" class="logo-img">
-          </a>
-        </div>
-
-        <div class="socials">
-          <a href="https://wa.me/59173526797" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><img src="images/footerIcons/WHATSAPP.png" alt="WhatsApp"></a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Facebook"><img src="images/footerIcons/FACEBOOK.png" alt="Facebook"></a>
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info%40grupoinox.com.bo" target="_blank" rel="noopener noreferrer" aria-label="Escribir a Grupo Inox en Gmail"><img src="images/footerIcons/GMAIL.png" alt="Gmail"></a>
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Grupo Inox: ir al inicio">
+          <img src="images/LOGO-BLANCO.png" alt="Grupo Inox" width="220" height="70" loading="lazy">
+        </a>
+        <div class="footer-social" aria-label="Redes y contacto digital">
+          <a href="https://wa.me/59173526797" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="images/footerIcons/WHATSAPP.png" alt=""></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="images/footerIcons/FACEBOOK.png" alt=""></a>
+          <a href="mailto:info@grupoinox.com.bo" aria-label="Correo electrónico"><img src="images/footerIcons/GMAIL.png" alt=""></a>
         </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Productos</h4>
-        <a href="productos/productos.html">Válvulas</a>
-        <a href="productos/productos.html">Tuberías</a>
-        <a href="productos/productos.html">Conexiones</a>
-        <a href="productos/productos.html">Instrumentación</a>
-      </div>
+      <nav class="footer-col" aria-labelledby="footer-products-title">
+        <h2 id="footer-products-title">Productos</h2>
+        <ul>
+          <li><a href="productos/detalle.html?categoria=barras">Barras</a></li>
+          <li><a href="productos/detalle.html?categoria=soldadura">Soldadura</a></li>
+          <li><a href="productos/detalle.html?categoria=barandas">Barandas</a></li>
+          <li><a href="productos/detalle.html?categoria=accesorios">Accesorios</a></li>
+          <li><a href="productos/detalle.html?categoria=empaques">Empaques</a></li>
+        </ul>
+      </nav>
 
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <a href="servicios/servicios.html">Ingeniería</a>
-        <a href="servicios/mantenimiento-industrial.html">Mantenimiento</a>
-        <a href="servicios/gestion-proyectos.html">Gestión de proyectos</a>
-        <a href="servicios/asesoramiento-tecnico.html">Soporte técnico</a>
-      </div>
+      <nav class="footer-col" aria-labelledby="footer-services-title">
+        <h2 id="footer-services-title">Servicios</h2>
+        <ul>
+          <li><a href="servicios/gestion-proyectos.html">Gestión de proyectos</a></li>
+          <li><a href="servicios/mantenimiento-industrial.html">Mantenimiento industrial</a></li>
+          <li><a href="servicios/servicios.html">Diseño e ingeniería de proyectos</a></li>
+          <li><a href="servicios/asesoramiento-tecnico.html">Asesoramiento técnico</a></li>
+        </ul>
+      </nav>
 
-      <div class="footer-col">
-        <h4>Contactos</h4>
-        <a href="contacto/contacto.html">Página de contacto</a>
-        <p>+591 73526797</p>
-        <p>info@grupoinox.com.bo</p>
-        <p>Av. 6 de Marzo, El Alto, Bolivia</p>
+      <div class="footer-col footer-contact-col">
+        <h2>Contactos</h2>
+        <ul>
+          <li><a href="contacto/contacto.html">Página de contacto</a></li>
+          <li><a href="tel:+59173526797">+591 735 26797</a></li>
+          <li><a href="mailto:info@grupoinox.com.bo">info@grupoinox.com.bo</a></li>
+          <li><span>Av. 6 de Marzo, El Alto, Bolivia</span></li>
+        </ul>
       </div>
-
     </div>
-
-    <div class="copyright">© Grupo Inox S.R.L.  2026</div>
+    <div class="footer-bottom">
+      <p class="copyright">© Grupo Inox S.R.L. <span data-footer-year>2026</span></p>
+    </div>
   </div>
 </footer>

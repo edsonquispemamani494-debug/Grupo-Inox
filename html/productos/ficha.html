@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de producto | Grupo Inox S.R.L.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/productos/detalle.css">
+  <link rel="stylesheet" href="../../css/productos/tienda.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/spacing.css">
+</head>
+<body class="ficha-page">
+  <div id="site-header"></div>
+  <main class="product-sheet container" id="productSheet">
+    <nav class="sheet-breadcrumb" aria-label="Ruta de navegación"><a href="productos.html">Productos</a><span>/</span><a id="categoryLink" href="detalle.html">Categoría</a><span>/</span><span>Detalle del producto</span></nav>
+    <section class="sheet-overview" aria-labelledby="sheetTitle">
+      <div class="sheet-gallery">
+        <div class="sheet-thumbnails" aria-label="Vistas del producto" id="sheetThumbnails"></div>
+        <div class="sheet-image"><img id="sheetImage" src="../../images/productos/valvula de compuerta.png" alt="Producto"></div>
+      </div>
+      <div class="sheet-summary">
+        <div class="eyebrow" id="sheetCategory"></div>
+        <h1 id="sheetTitle"></h1>
+        <p class="sheet-reference">Referencia: <span id="sheetReference"></span></p>
+        <div class="sheet-brand">GRUPO <strong>INOX</strong><small>Suministros industriales</small></div>
+        <p id="sheetDescription"></p>
+        <div class="sheet-actions"><label class="sheet-quantity">Cantidad<input id="sheetQuantity" type="number" min="1" max="999" step="1" value="1" inputmode="numeric"></label><button class="shop-primary" type="button" id="addToCart">Agregar al carrito <span aria-hidden="true">→</span></button></div>
+        <p class="sheet-note">Arma tu selección de productos. Las compras aún no están habilitadas.</p>
+        <span class="sheet-document">Ficha técnica: próximamente disponible</span>
+      </div>
+    </section>
+
+    
+    <nav class="sheet-tabs" aria-label="Información del producto"><a href="#caracteristicas">Características técnicas</a><a href="#materiales">Componentes y materiales</a><a href="#dimensiones">Dimensiones generales</a></nav>
+    <section class="sheet-section" id="caracteristicas"><h2>Características técnicas</h2><table class="sheet-table"><caption>Información general del producto</caption><tbody id="sheetSpecs"></tbody></table></section>
+    <div class="sheet-info-grid"><section class="sheet-section" id="materiales"><h2>Componentes y materiales</h2><p id="sheetMaterials"></p></section><section class="sheet-section" id="dimensiones"><h2>Dimensiones generales</h2><p id="sheetDimensions"></p></section></div>
+    <section class="sheet-section sheet-certifications"><div><h2>Normas y certificaciones</h2><p>La documentación y las certificaciones se publicarán según el modelo y el fabricante.</p></div><div class="sheet-document-card"><span aria-hidden="true">▤</span><strong>Documentación técnica</strong><small>Pendiente de incorporación</small></div></section>
+    <section class="sheet-section sheet-related"><div class="sheet-related-head"><h2>Productos relacionados</h2><a id="seeCategory" href="detalle.html">Ver categoría →</a></div><div id="sheetRelated" class="sheet-related-grid"></div></section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/productos/catalogo-data.js"></script>
+  <script src="../../js/productos/tienda.js"></script>
+</body>
+</html>

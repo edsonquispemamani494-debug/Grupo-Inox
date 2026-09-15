@@ -44,20 +44,6 @@ initIndustrialCursor();
 
 ;
 document.addEventListener('DOMContentLoaded', () => {
-  // Crea una segunda copia idéntica e independiente del catálogo principal.
-  const primaryProductShowcase=document.getElementById('productos');
-  if(primaryProductShowcase?.classList.contains('product-showcase') && !document.getElementById('productos-2')){
-    const secondProductShowcase=primaryProductShowcase.cloneNode(true);
-    secondProductShowcase.id='productos-2';
-    secondProductShowcase.classList.add('product-showcase--emotions');
-    secondProductShowcase.querySelectorAll('[id]').forEach(element=>element.removeAttribute('id'));
-    const secondEyebrow=secondProductShowcase.querySelector('.product-showcase__head .eyebrow');
-    if(secondEyebrow) secondEyebrow.textContent='Catálogo industrial 2';
-    secondProductShowcase.querySelectorAll('.product-showcase__card').forEach((card,index)=>card.toggleAttribute('active',index===0));
-    secondProductShowcase.querySelector('.product-showcase__dots')?.replaceChildren();
-    primaryProductShowcase.after(secondProductShowcase);
-  }
-
   // Duplica los logos automáticamente para mantener el carrusel continuo.
   const brandTrack=document.querySelector('.brand-track');
   if(brandTrack && !brandTrack.dataset.cloned){
@@ -77,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
   const sectors = [
-    ['PETROLERO','Soluciones y suministros confiables para operaciones de alta exigencia.'],
+    ['PETROLERO','Suministramos componentes para la conducción y el control de fluidos, con orientación técnica para las necesidades del sector petrolero.'],
     ['MINERO','Componentes y soporte para procesos mineros, conducción y control de fluidos.'],
-    ['ALIMENTICIO','Equipamiento orientado a higiene, precisión y continuidad de procesos.'],
+    ['ALIMENTICIO','Equipamiento orientado a la higiene, la precisión y la continuidad de los procesos.'],
     ['FARMACÉUTICO','Soluciones de alto estándar para instalaciones y procesos especializados.'],
     ['MANUFACTURA','Productos y servicios para optimizar la confiabilidad de planta.']
   ];
@@ -354,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const projects=[
-    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Implementación de soluciones y componentes orientados a fortalecer la operación industrial y sus procesos.',logo:'images/proyectos/paceña.png',anchor:'proyecto-1',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
+    {name:'PACEÑA',category:'Industria alimenticia · Proyecto industrial',text:'Suministro de componentes y soluciones para apoyar la operación de plantas de la industria alimenticia.',logo:'images/proyectos/paceña.png',anchor:'proyecto-1',image:'https://www.noticiasfides.com/images/news/2013/11/cbn-cumplio-127-anos-de-trayectoria-y-servicio-al-pais-y-se-convierte-en-compania-lider-_336325.jpg'},
     {name:'SOBOCE',category:'Industria cementera · Suministro industrial',text:'Suministro especializado para aplicaciones industriales con énfasis en confiabilidad y continuidad operativa.',logo:'images/proyectos/soboce.png',anchor:'proyecto-2',image:'https://tinformas.com/wp-content/uploads/2026/07/Cemento-Eco-Plus-Soboce.jpg'},
     {name:'YPFB',category:'Energía · Soluciones industriales',text:'Soluciones aplicadas a requerimientos técnicos de infraestructura y procesos del sector energético.',logo:'images/proyectos/ypfb.webp',anchor:'proyecto-3',image:'https://lavozdetarija.com/wp-content/uploads/2020/05/bolivia_ypfb_13.jpg'}
   ];
