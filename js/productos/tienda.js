@@ -11,19 +11,25 @@
     `${categories[key].name} de diseño reforzado`, `${categories[key].name} de diseño compacto`,
     `${categories[key].name} para aplicaciones especiales`, `${categories[key].name} a medida`
   ];
-  const resolve = (key, index = 0) => {
+  const resolve = (key, index = 0, model = 0) => {
     if (!Object.hasOwn(categories, key)) key = 'barras';
     const category = categories[key];
     const types = typesFor(key);
     if (!Number.isInteger(index) || index < 0 || index >= types.length) index = 0;
+    if (!Number.isInteger(model) || model < 0 || model > 3) model = 0;
+    const brands = ['GENEBRE', 'SPIRAX SARCO', 'DANFOSS', 'HONEYWELL'];
+    const materials = ['Acero inoxidable', 'Acero al carbono', 'Hierro dúctil', 'Bronce'];
+    const connections = ['Bridada', 'Roscada', 'Soldable', 'Clamp'];
+    const modelNames = ['PN16', 'Clase 800', 'PN25', 'Serie industrial'];
     let image = category.image;
     if (key === 'valvulas') image = 'valvula de compuerta.png';
     if (key === 'controles' && index === 0) image = 'caudalimetro.png';
     if (key === 'sellos-mecanicos' && index === 0) image = 'sello mecanico doble.png';
-    return { key, index, id: `${key}:${index}`, name: types[index], category,
+    return { key, index, model, id: `${key}:${index}:${model}`, name: types[index], category,
       image: `../../images/productos/${image}`,
-      reference: `${key.toUpperCase()}-${String(index + 1).padStart(2, '0')}`,
-      url: `ficha.html?categoria=${encodeURIComponent(key)}&tipo=${index}` };
+      brand: brands[model], material: materials[model], connection: connections[model], modelName: modelNames[model],
+      reference: `${key.toUpperCase()}-${String(index + 1).padStart(2, '0')}-${String(model + 1).padStart(3, '0')}`,
+      url: `ficha.html?categoria=${encodeURIComponent(key)}&tipo=${index}&modelo=${model}` };
   };
   const storageKey = 'inox-product-cart-v1';
   let cart = [];
@@ -31,7 +37,7 @@
     const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
     if (Array.isArray(saved)) saved.slice(0, 100).forEach(row => {
       if (!row || !Object.hasOwn(categories, row.key) || !Number.isInteger(row.index) || row.index < 0 || row.index >= typesFor(row.key).length || !Number.isInteger(row.quantity) || row.quantity < 1) return;
-      const product = resolve(row.key, row.index);
+      const product = resolve(row.key, row.index, Number.isInteger(row.model) ? row.model : 0);
       const previous = cart.find(item => item.id === product.id);
       if (previous) previous.quantity = Math.min(999, previous.quantity + row.quantity);
       else cart.push({ ...product, quantity: Math.min(999, row.quantity) });
@@ -47,7 +53,7 @@
   dialog.id = 'productCart';
   dialog.className = 'cart-dialog';
   dialog.setAttribute('aria-labelledby', 'cartTitle');
-  dialog.innerHTML = '<div class="cart-heading"><h2 id="cartTitle">Mi carrito</h2><button type="button" class="cart-close" aria-label="Cerrar carrito">×</button></div><p class="cart-intro">Tu selección de productos industriales.</p><div class="cart-items"></div><div class="cart-footer"><strong class="cart-total"></strong><p>Las compras aún no están habilitadas. Esta selección no genera un pedido ni una solicitud de cotización.</p><button type="button" class="shop-primary cart-continue">Seguir explorando →</button></div>';
+  dialog.innerHTML = '<div class="cart-heading"><h2 id="cartTitle">Mi carrito</h2><button type="button" class="cart-close" aria-label="Cerrar carrito">×</button></div><p class="cart-intro">Tu selección de productos industriales.</p><div class="cart-items"></div><div class="cart-footer"><strong class="cart-total"></strong><p>cambiar texto cuando sea aprobado.</p><button type="button" class="shop-primary cart-continue">Seguir explorando →</button></div>';
   const status = document.createElement('div');
   status.className = 'cart-status';
   status.setAttribute('role', 'status');
@@ -59,7 +65,7 @@
     statusTimer = setTimeout(() => { status.textContent = ''; }, 4000);
   }
   function persist() {
-    try { localStorage.setItem(storageKey, JSON.stringify(cart.map(({ key, index, quantity }) => ({ key, index, quantity })))); }
+    try { localStorage.setItem(storageKey, JSON.stringify(cart.map(({ key, index, model, quantity }) => ({ key, index, model, quantity })))); }
     catch { announce('Selección actualizada. No se pudo guardar en este navegador.'); }
   }
   function renderCart() {
@@ -122,7 +128,7 @@
     }
   });
   const params = new URLSearchParams(location.search);
-  const product = resolve(params.get('categoria') || (document.getElementById('productSheet') ? 'valvulas' : 'barras'), Number(params.get('tipo') || 0));
+  const product = resolve(params.get('categoria') || (document.getElementById('productSheet') ? 'valvulas' : 'barras'), Number(params.get('tipo') || 0), Number(params.get('modelo') || 0));
   // Mantener nombres e imágenes iguales entre categoría y ficha.
   document.querySelectorAll('.product-type-card').forEach((card, index) => {
     const item = resolve(product.key, index);
@@ -130,21 +136,38 @@
     card.querySelector('h3').textContent = item.name;
     const img = card.querySelector('img');
     img.src = item.image; img.alt = item.name;
-    card.querySelector('a').href = item.url;
+    card.querySelector('a').href = document.body.classList.contains('product-detail-page')
+      ? `listado.html?categoria=${encodeURIComponent(product.key)}&tipo=${index}` : item.url;
   });
   if (!document.getElementById('productSheet')) return;
-  document.title = `${product.name} | Grupo Inox S.R.L.`;
-  const text = (id, value) => { document.getElementById(id).textContent = value; };
-  text('sheetTitle', product.name);
+  document.title = `${product.name} ${product.modelName} | Grupo Inox S.R.L.`;
+  const text = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
+  text('sheetTitle', `${product.name} ${product.modelName}`);
   text('sheetCategory', product.category.eyebrow || product.category.name);
   text('sheetReference', product.reference);
   text('sheetDescription', product.category.intro);
-  text('sheetMaterials', 'Los componentes y materiales específicos se confirmarán para cada modelo.');
-  text('sheetDimensions', product.category.availability);
-  for (const id of ['categoryLink', 'seeCategory']) document.getElementById(id).href = `detalle.html?categoria=${product.key}`;
+  const brandLogoFiles = {
+    'GENEBRE': 'display-genebre.png',
+    'SPIRAX SARCO': 'display-spiraxsarco.png',
+    'DANFOSS': 'display-danfoos.png',
+    'HONEYWELL': 'display-honeywell.png'
+  };
+  const brandLogo = document.getElementById('sheetBrandLogo');
+  if (brandLogo) {
+    brandLogo.src = `../../images/productos/marcas/${brandLogoFiles[product.brand] || 'display-genebre.png'}`;
+    brandLogo.alt = product.brand;
+  }
+  text('sheetMaterials', `${product.material}. Los componentes específicos se confirmarán según el modelo seleccionado.`);
+  text('sheetDimensions', `${product.modelName}, conexión ${product.connection.toLocaleLowerCase('es')}. ${product.category.availability}`);
+  for (const id of ['categoryLink', 'seeCategory']) {
+    const link = document.getElementById(id);
+    if (link) link.href = `detalle.html?categoria=${product.key}`;
+  }
+  const listingLink = document.getElementById('listingLink');
+  if (listingLink) listingLink.href = `listado.html?categoria=${encodeURIComponent(product.key)}&tipo=${product.index}`;
   text('categoryLink', product.category.name);
   const mainImage = document.getElementById('sheetImage');
-  mainImage.src = product.image; mainImage.alt = product.name;
+  mainImage.src = product.image; mainImage.alt = `${product.name} ${product.modelName}`;
   ['Vista general', 'Detalle ampliado', 'Vista inclinada'].forEach((label, index) => {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'sheet-thumbnail';
@@ -161,12 +184,13 @@
     });
     document.getElementById('sheetThumbnails').append(button);
   });
-  const specs = [ ['Producto', product.name], ['Categoría', product.category.name], ['Referencia del catálogo', product.reference], ['Aplicaciones', product.category.applications], ['Material', 'Por confirmar según modelo'], ['Conexiones / montaje', 'Por confirmar según aplicación'], ['Dimensiones', 'Por confirmar según requerimiento'], ['Condiciones de operación', 'Consultar especificaciones del fabricante'], ['Disponibilidad', 'Por confirmar'] ];
+  const specs = [ ['Producto', product.name], ['Modelo', product.modelName], ['Marca', product.brand], ['Categoría', product.category.name], ['Referencia del catálogo', product.reference], ['Aplicaciones', product.category.applications], ['Material', product.material], ['Conexiones / montaje', product.connection], ['Dimensiones', 'Por confirmar según requerimiento'], ['Condiciones de operación', 'Consultar especificaciones del fabricante'], ['Disponibilidad', 'Por confirmar'] ];
+  const specsBody = document.getElementById('sheetSpecs');
   specs.forEach(([label, value]) => {
     const row = document.createElement('tr');
     const heading = document.createElement('th'); heading.scope = 'row'; heading.textContent = label;
     const cell = document.createElement('td'); cell.textContent = value;
-    row.append(heading, cell); document.getElementById('sheetSpecs').append(row);
+    row.append(heading, cell); specsBody?.append(row);
   });
   document.getElementById('addToCart').addEventListener('click', () => {
     const input = document.getElementById('sheetQuantity');
@@ -181,16 +205,29 @@
   });
   const related = typesFor(product.key).map((_, index) => resolve(product.key, index)).filter(item => item.id !== product.id).slice(0, 3);
   if (related.length < 3) related.push(resolve(product.key === 'valvulas' ? 'controles' : 'valvulas'));
+  const relatedGrid = document.getElementById('sheetRelated');
   related.forEach(item => {
     const card = document.createElement('article'); card.className = 'sheet-related-card';
     card.innerHTML = `<img src="${item.image}" alt="${item.name}" loading="lazy"><div class="sheet-related-body"><h3>${item.name}</h3><small>Referencia: ${item.reference}</small><a class="shop-primary" href="${item.url}">Ver producto <span aria-hidden="true">→</span></a></div>`;
-    document.getElementById('sheetRelated').append(card);
+    relatedGrid?.append(card);
   });
+  document.getElementById('contactForm')?.addEventListener('submit', event => {
+    event.preventDefault(); alert('Solicitud enviada.');
+  });
+  const contactRevealItems = document.querySelectorAll('#contacto .reveal');
+  if ('IntersectionObserver' in window) {
+    const contactObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      contactObserver.unobserve(entry.target);
+    }), { threshold: .12 });
+    contactRevealItems.forEach(item => contactObserver.observe(item));
+  } else {
+    contactRevealItems.forEach(item => item.classList.add('visible'));
+  }
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initProductShop, { once: true });
 } else {
   initProductShop();
 }
-
-

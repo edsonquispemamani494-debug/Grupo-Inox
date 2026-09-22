@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../../css/productos/tienda.css">
   <link rel="stylesheet" href="../../css/typography.css">
   <link rel="stylesheet" href="../../css/spacing.css">
+<link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body class="catalog-page">
 <div id="site-header"></div>
@@ -58,25 +59,13 @@
         <h2 id="featured-products-title" class="section-heading-size">Productos<br>destacados</h2>
         <a href="#productos-2" class="featured-products__all">Ver todos <span aria-hidden="true">→</span></a>
       </div>
-      <div class="featured-products__viewport" aria-label="Carrusel de productos destacados">
-        <div class="featured-products__track" id="productTrack">
+      <div class="featured-products__viewport" aria-label="Productos destacados">
+        <div class="featured-products__track">
           <article class="featured-product-card">
             <img src="../../images/productos/valvula de compuerta.png" alt="Válvula de compuerta" loading="lazy">
             <div class="featured-product-card__body"><h3>Válvula de compuerta</h3><small>GENEBRE</small><button type="button" aria-label="Ver Válvula de compuerta">+</button></div>
           </article>
-          <article class="featured-product-card">
-            <img src="../../images/productos/sello mecanico doble.png" alt="Sello mecánico doble" loading="lazy">
-            <div class="featured-product-card__body"><h3>Sello mecánico doble</h3><small>TRISUN</small><button type="button" aria-label="Ver Sello mecánico doble">+</button></div>
-          </article>
-          <article class="featured-product-card">
-            <img src="../../images/productos/caudalimetro.png" alt="Caudalímetro" loading="lazy">
-            <div class="featured-product-card__body"><h3>Caudalímetro</h3><small>WINTERS</small><button type="button" aria-label="Ver Caudalímetro">+</button></div>
-          </article>
-          <article class="featured-product-card">
-            <img src="../../images/productos/valvula de compuerta.png" alt="Válvula de compuerta" loading="lazy">
-            <div class="featured-product-card__body"><h3>Válvula de compuerta</h3><small>GENEBRE</small><button type="button" aria-label="Ver Válvula de compuerta">+</button></div>
-          </article>
-          <article class="featured-product-card">
+          <article class="featured-product-card is-center">
             <img src="../../images/productos/sello mecanico doble.png" alt="Sello mecánico doble" loading="lazy">
             <div class="featured-product-card__body"><h3>Sello mecánico doble</h3><small>TRISUN</small><button type="button" aria-label="Ver Sello mecánico doble">+</button></div>
           </article>
@@ -85,11 +74,6 @@
             <div class="featured-product-card__body"><h3>Caudalímetro</h3><small>WINTERS</small><button type="button" aria-label="Ver Caudalímetro">+</button></div>
           </article>
         </div>
-      </div>
-      <div class="featured-products__controls">
-        <button class="featured-products__nav" id="productPrev" type="button" aria-label="Producto destacado anterior">←</button>
-        <div class="featured-products__dots" id="productDots" aria-label="Seleccionar producto destacado"></div>
-        <button class="featured-products__nav" id="productNext" type="button" aria-label="Producto destacado siguiente">→</button>
       </div>
     </div>
   </section>
@@ -136,6 +120,7 @@
 </main>
 <div id="site-footer"></div>
 <script src="../../js/components.js"></script>
+<script src="../../js/responsive.js"></script>
 <script src="../../js/productos/catalogo-data.js"></script>
 <script src="../../js/productos/productos.js"></script>
 <script src="../../js/productos/tienda.js"></script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos disponibles | Grupo Inox S.R.L.</title>
+  <meta name="description" content="Modelos industriales disponibles por tipo, marca, material y conexión.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/productos/detalle.css">
+  <link rel="stylesheet" href="../../css/productos/listado.css">
+  <link rel="stylesheet" href="../../css/productos/tienda.css">
+  <link rel="stylesheet" href="../../css/typography.css">
+  <link rel="stylesheet" href="../../css/spacing.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body class="product-list-page">
+  <div id="site-header"></div>
+  <main>
+    <section class="product-detail-hero listing-hero" data-header-hero aria-labelledby="listingTitle">
+      <div class="container product-detail-hero__grid">
+        <div class="product-detail-hero__copy">
+          <a class="product-detail-back" id="listingBack" href="detalle.html">← Volver a la categoría</a>
+          <div class="eyebrow" id="listingEyebrow">Productos industriales</div>
+          <h1 id="listingTitle">Producto</h1>
+          <p id="listingIntro"></p>
+        </div>
+        <div class="product-detail-hero__visual">
+          <img id="listingImage" src="../../images/productos/valvula de compuerta.png" alt="Producto industrial">
+        </div>
+      </div>
+    </section>
+
+    <section class="listing-products" aria-labelledby="availableTitle">
+      <div class="container">
+        <div class="listing-heading">
+          <div><div class="eyebrow">Catálogo por modelo</div><h2 id="availableTitle">Productos disponibles</h2></div>
+          <p id="listingCount" aria-live="polite"></p>
+        </div>
+        <div class="listing-layout">
+          <aside class="product-filters" aria-label="Filtros de productos">
+            <button class="product-filters__toggle" type="button" aria-expanded="false" aria-controls="filterGroups">Filtrar productos <span>+</span></button>
+            <div id="filterGroups" class="product-filters__groups">
+              <fieldset><legend>Marca</legend><div id="brandFilters"></div></fieldset>
+              <fieldset><legend>Material</legend><div id="materialFilters"></div></fieldset>
+              <fieldset><legend>Tipo de conexión</legend><div id="connectionFilters"></div></fieldset>
+              <button id="clearFilters" class="product-filters__clear" type="button">Limpiar filtros</button>
+            </div>
+          </aside>
+          <div id="availableProducts" class="available-products-grid"></div>
+        </div>
+        <p id="noProducts" class="listing-empty" hidden>No hay modelos con esa combinación. Prueba quitando algún filtro.</p>
+      </div>
+    </section>
+
+    <section class="available-brands" aria-labelledby="brandsTitle">
+      <div class="container">
+        <div class="eyebrow">Fabricantes</div>
+        <h2 id="brandsTitle">Marcas disponibles</h2>
+        <p>Trabajamos con fabricantes líderes para cada aplicación industrial.</p>
+        <div id="availableBrands" class="available-brands__grid"></div>
+      </div>
+    </section>
+
+    <section class="section listing-quote" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="eyebrow">¿Necesitas cotizar algún producto?</div>
+          <h2>SOLICITA<br>TU COTIZACIÓN</h2>
+          <p class="muted">Indícanos el modelo, cantidad y condiciones de trabajo. Nuestro equipo te ayudará a confirmar la selección.</p>
+        </div>
+        <form class="form-box reveal" id="contactForm">
+          <div class="form-row"><label for="name">Nombre</label><input id="name" type="text" required></div>
+          <div class="form-row"><label for="email">Correo electrónico</label><input id="email" type="email" required></div>
+          <div class="form-row"><label for="company">Empresa</label><input id="company" type="text"></div>
+          <div class="form-row"><label for="requestProduct">Producto</label><input id="requestProduct" type="text"></div>
+          <button class="btn btn-primary btn-arrow" type="submit">Enviar solicitud</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../../js/components.js"></script>
+  <script src="../../js/responsive.js"></script>
+  <script src="../../js/productos/catalogo-data.js"></script>
+  <script src="../../js/productos/listado.js"></script>
+  <script src="../../js/productos/tienda.js"></script>
+</body>
+</html>

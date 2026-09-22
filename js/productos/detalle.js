@@ -109,7 +109,7 @@ if (typeGrid) {
     card.innerHTML = `
       <img class="product-type-card__image" src="../../images/productos/${product.image}" alt="${typeName}" loading="lazy">
       <h3>${typeName}</h3>
-      <a class="btn btn-primary btn-arrow" href="ficha.html?categoria=${encodeURIComponent(key)}&amp;tipo=${index}">Ver producto</a>`;
+      <a class="btn btn-primary btn-arrow" href="listado.html?categoria=${encodeURIComponent(key)}&amp;tipo=${index}">Ver modelos</a>`;
     cards.appendChild(card);
   });
   typeGrid.replaceChildren(cards);

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../../css/servicios/mantenimiento-industrial.css">
   <link rel="stylesheet" href="../../css/typography.css">
   <link rel="stylesheet" href="../../css/spacing.css">
+<link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body class="services-page">
   <div id="site-header"></div>
@@ -67,14 +68,21 @@
     <section class="maintenance-actions" aria-labelledby="maintenanceActionsTitle">
       <div class="container">
         <h2 id="maintenanceActionsTitle" class="maintenance-actions__title reveal">¿Qué hacemos?</h2>
-        <ol class="maintenance-actions__list" aria-label="Servicios de mantenimiento por definir">
-          <li class="reveal"><span>1</span></li>
-          <li class="reveal"><span>2</span></li>
-          <li class="reveal"><span>3</span></li>
-          <li class="reveal"><span>4</span></li>
-          <li class="reveal"><span>5</span></li><li class="reveal"><span>6</span></li>
-        </ol>
-
+        <div class="maintenance-actions__grid">
+          <figure class="maintenance-actions__image reveal">
+            <div class="maintenance-actions__image-clip">
+              <img src="../../images/index/equipo-industrial.png" alt="Equipo técnico en una planta industrial" loading="lazy">
+            </div>
+          </figure>
+          <ol class="maintenance-actions__list" aria-label="Servicios de mantenimiento">
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">1</span><img src="../../images/servicios/1.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Identificación de posibles fallas</span></li>
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">2</span><img src="../../images/servicios/2.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Identificación de posibles fallas</span></li>
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">3</span><img src="../../images/servicios/3.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Mantenimiento preventivo</span></li>
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">4</span><img src="../../images/servicios/4.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Diagnóstico de averías</span></li>
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">5</span><img src="../../images/servicios/5.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Intervenciones correctivas</span></li>
+            <li class="reveal"><span class="maintenance-actions__number" aria-hidden="true">6</span><img src="../../images/servicios/6.png" alt="" class="maintenance-actions__icon" loading="lazy"><span class="maintenance-actions__label">Asistencia técnica</span></li>
+          </ol>
+        </div>
         <div class="attention-process reveal" aria-labelledby="attentionProcessTitle">
           <h2 id="attentionProcessTitle">Proceso de atención</h2>
           <ol class="attention-process__steps">
@@ -126,6 +134,7 @@
   <div id="site-footer"></div>
   
 <script src="../../js/components.js"></script>
+<script src="../../js/responsive.js"></script>
 <script src="../../js/servicios/mantenimiento-industrial.js"></script>
 </body>
 </html>

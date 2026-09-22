@@ -9,41 +9,66 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/productos/detalle.css">
-  <link rel="stylesheet" href="../../css/productos/tienda.css">
+  <link rel="stylesheet" href="../../css/productos/tienda.css?v=20260922-2">
   <link rel="stylesheet" href="../../css/typography.css">
   <link rel="stylesheet" href="../../css/spacing.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body class="ficha-page">
   <div id="site-header"></div>
-  <main class="product-sheet container" id="productSheet">
-    <nav class="sheet-breadcrumb" aria-label="Ruta de navegación"><a href="productos.html">Productos</a><span>/</span><a id="categoryLink" href="detalle.html">Categoría</a><span>/</span><span>Detalle del producto</span></nav>
+  <main>
+  <div class="product-sheet container" id="productSheet">
     <section class="sheet-overview" aria-labelledby="sheetTitle">
       <div class="sheet-gallery">
         <div class="sheet-thumbnails" aria-label="Vistas del producto" id="sheetThumbnails"></div>
-        <div class="sheet-image"><img id="sheetImage" src="../../images/productos/valvula de compuerta.png" alt="Producto"></div>
+        <div class="sheet-image" id="sheetImageZoom">
+          <img id="sheetImage" src="../../images/productos/valvula de compuerta.png" alt="Producto">
+        </div>
       </div>
       <div class="sheet-summary">
         <div class="eyebrow" id="sheetCategory"></div>
         <h1 id="sheetTitle"></h1>
         <p class="sheet-reference">Referencia: <span id="sheetReference"></span></p>
-        <div class="sheet-brand">GRUPO <strong>INOX</strong><small>Suministros industriales</small></div>
+        <div class="sheet-brand"><img id="sheetBrandLogo" src="../../images/productos/marcas/display-genebre.png" alt="GENEBRE"><small>Fabricante / marca disponible</small></div>
         <p id="sheetDescription"></p>
+        <a class="shop-primary sheet-quote-button" href="#contacto">Solicitar cotización <span aria-hidden="true">→</span></a>
         <div class="sheet-actions"><label class="sheet-quantity">Cantidad<input id="sheetQuantity" type="number" min="1" max="999" step="1" value="1" inputmode="numeric"></label><button class="shop-primary" type="button" id="addToCart">Agregar al carrito <span aria-hidden="true">→</span></button></div>
         <p class="sheet-note">Arma tu selección de productos. Las compras aún no están habilitadas.</p>
-        <span class="sheet-document">Ficha técnica: próximamente disponible</span>
+        <a class="sheet-document" href="#caracteristicas">Ver ficha técnica <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
-    
-    <nav class="sheet-tabs" aria-label="Información del producto"><a href="#caracteristicas">Características técnicas</a><a href="#materiales">Componentes y materiales</a><a href="#dimensiones">Dimensiones generales</a></nav>
+    <nav class="sheet-tabs" aria-label="Información del producto"><a href="#caracteristicas">Características técnicas</a><a href="#materiales">Componentes y materiales</a><a href="#dimensiones">Dimensiones generales</a><a href="#certificaciones">Normas</a></nav>
     <section class="sheet-section" id="caracteristicas"><h2>Características técnicas</h2><table class="sheet-table"><caption>Información general del producto</caption><tbody id="sheetSpecs"></tbody></table></section>
     <div class="sheet-info-grid"><section class="sheet-section" id="materiales"><h2>Componentes y materiales</h2><p id="sheetMaterials"></p></section><section class="sheet-section" id="dimensiones"><h2>Dimensiones generales</h2><p id="sheetDimensions"></p></section></div>
-    <section class="sheet-section sheet-certifications"><div><h2>Normas y certificaciones</h2><p>La documentación y las certificaciones se publicarán según el modelo y el fabricante.</p></div><div class="sheet-document-card"><span aria-hidden="true">▤</span><strong>Documentación técnica</strong><small>Pendiente de incorporación</small></div></section>
+    <section class="sheet-section sheet-certifications" id="certificaciones"><div><h2>Normas y certificaciones</h2><ul class="sheet-standards"><li>DIN 3352</li><li>EN 1171</li><li>EN 558 Serie 14</li><li>EN 1092-2 PN16</li></ul></div><div class="sheet-certification-image"><img src="../../images/productos/certificacion.png" alt="WRAS Approved Product" loading="lazy"></div></section>
     <section class="sheet-section sheet-related"><div class="sheet-related-head"><h2>Productos relacionados</h2><a id="seeCategory" href="detalle.html">Ver categoría →</a></div><div id="sheetRelated" class="sheet-related-grid"></div></section>
+
+  </div>
+
+  <section class="section" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-copy reveal">
+        <div class="eyebrow">Hablemos</div>
+        <h2>TRABAJA<br>CON NOSOTROS</h2>
+        <div class="quote">Solicita tu cotización.</div>
+        <p class="muted">Impulsa tus proyectos con nosotros. Cuéntanos qué necesitas y nuestro equipo podrá orientarte.</p>
+      </div>
+
+      <form class="form-box reveal" id="contactForm">
+        <div class="form-row"><label for="name">Nombre</label><input id="name" type="text" required></div>
+        <div class="form-row"><label for="email">Correo</label><input id="email" type="email" required></div>
+        <div class="form-row"><label for="company">Empresa</label><input id="company" type="text"></div>
+        <div class="form-row"><label for="service">Servicio</label><select id="service"><option>Selecciona una opción</option><option selected>Productos industriales</option><option>Mantenimiento</option><option>Ingeniería</option><option>Cotización general</option></select></div>
+        <button class="btn btn-primary btn-arrow" type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
   </main>
   <div id="site-footer"></div>
   <script src="../../js/components.js"></script>
+  <script src="../../js/responsive.js"></script>
   <script src="../../js/productos/catalogo-data.js"></script>
-  <script src="../../js/productos/tienda.js"></script>
+  <script src="../../js/productos/tienda.js?v=20260922-3"></script>
 </body>
 </html>
