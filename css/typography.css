@@ -1,12 +1,8 @@
-/* Tipografia editorial: solo heroes y textos generales de seccion.
-   Los componentes conservan sus estilos originales en las hojas de cada pagina.
-   No aplicar reglas globales a body, encabezados, parrafos o controles. */
 @layer typography {
   :root {
     --font-title: clamp(2rem, 4.5vw, 4rem);
     --font-subtitle: clamp(1.5rem, 2.4vw, 2rem);
     --font-content: 1rem;
-    /* Colores de texto de css/index/index.css. No cambian fondos ni componentes. */
     --editorial-blue: #164980;
     --editorial-orange: #f47b20;
   }
@@ -39,7 +35,6 @@
     .project-collection-intro > h2,
     .branch-intro h2
   ) {
-    /* Variables limitadas al titulo para conservar sus acentos de color. */
     --text-blue: var(--editorial-blue) !important;
     --blue: var(--editorial-blue) !important;
     --orange: var(--editorial-orange) !important;
@@ -61,8 +56,6 @@
     font-size: var(--font-content) !important;
     line-height: 1.7 !important;
   }
-
-  /* Rotulos y textos introductorios; nunca etiquetas de tarjetas o controles. */
   main :is(
     .section-head .eyebrow,
     .about-copy > .eyebrow,
@@ -81,8 +74,6 @@
   main > .project-stages > .container > .project-stages__subtitle {
     color: var(--editorial-blue) !important;
   }
-
-  /* Encabezados seleccionados y cabecera del formulario en todas las paginas. */
   .section-heading-size,
   main .contact-copy > h2 {
     font-size: var(--font-subtitle) !important;

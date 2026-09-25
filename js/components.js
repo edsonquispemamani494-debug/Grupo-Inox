@@ -43,9 +43,6 @@ function initSharedHeader() {
       headerLogo.src = isScrolled ? logoColor : logoWhite;
     }
 
-    if (menuBtn) {
-      menuBtn.style.color = isScrolled ? '#071f37' : '#ffffff';
-    }
   }
 
   window.addEventListener('scroll', handleHeader);
@@ -53,9 +50,36 @@ function initSharedHeader() {
   handleHeader();
 
   if (menuBtn && nav) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+    const mobileMenu = window.matchMedia('(max-width: 1100px)');
+    function setMenuOpen(isOpen) {
+      nav.classList.toggle('open', isOpen);
+      header.classList.toggle('menu-open', isOpen);
       menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+      nav.inert = mobileMenu.matches && !isOpen;
+      if (!isOpen) {
+        nav.querySelectorAll('.submenu-open').forEach(item => {
+          item.classList.remove('submenu-open');
+          item.querySelector('.submenu-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+    setMenuOpen(false);
+    mobileMenu.addEventListener('change', () => setMenuOpen(false));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        setMenuOpen(false);
+        menuBtn.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      if (nav.classList.contains('open') && !header.contains(event.target)) setMenuOpen(false);
+    });
+    header.addEventListener('focusout', event => {
+      if (nav.classList.contains('open') && !header.contains(event.relatedTarget)) setMenuOpen(false);
+    });
+    menuBtn.addEventListener('click', () => {
+      setMenuOpen(!nav.classList.contains('open'));
     });
 
     nav.querySelectorAll('.submenu-toggle').forEach(button => {
@@ -68,11 +92,42 @@ function initSharedHeader() {
 
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
+        setMenuOpen(false);
       });
     });
   }
+}
+
+function initSharedQuoteForm() {
+  const form = document.getElementById('contactForm');
+  if (!form || form.dataset.contactMethod === 'email') return;
+
+  form.dataset.contactMethod = 'email';
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (!form.reportValidity()) return;
+
+    const labels = [...form.querySelectorAll('label')];
+    const fields = [...form.querySelectorAll('input, select, textarea')]
+      .filter(field => !['button', 'submit', 'reset'].includes(field.type))
+      .map(field => {
+        const label = labels.find(item => item.htmlFor === field.id)?.textContent.trim()
+          || field.id || 'Dato';
+        return `${label}: ${field.value.trim()}`;
+      });
+    const pageName = document.title.split('|')[0].trim() || 'Grupo Inox';
+    const subject = `Solicitud web - ${pageName}`;
+    const body = [
+      'Nueva solicitud desde el sitio web de Grupo Inox.',
+      '',
+      ...fields,
+      '',
+      `Página de origen: ${window.location.href}`
+    ].join('\n');
+
+    window.location.href = `mailto:info@grupoinox.com.bo?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }, true);
 }
 
 async function initSharedComponents() {
@@ -109,4 +164,5 @@ async function initSharedComponents() {
   initSharedHeader();
 }
 
+initSharedQuoteForm();
 initSharedComponents();

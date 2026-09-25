@@ -334,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   let projectIndex=0;
   let projectChangeToken=0;
+  const projectSection=document.getElementById('proyectos');
+  let projectTimer;
   const updateProject=()=>{
     const name=document.getElementById('projectName'); if(!name) return;
     const p=projects[projectIndex]; name.textContent=p.name;
@@ -364,8 +366,33 @@ document.addEventListener('DOMContentLoaded', () => {
     preload.onerror=()=>showImage('images/index/proyecto-industrial.png');
     preload.src=p.image;
   };
-  document.getElementById('projectNext')?.addEventListener('click',()=>{projectIndex=(projectIndex+1)%projects.length;updateProject()});
-  document.getElementById('projectPrev')?.addEventListener('click',()=>{projectIndex=(projectIndex+projects.length-1)%projects.length;updateProject()});
+  const stopProjectAutoplay=()=>clearInterval(projectTimer);
+  const startProjectAutoplay=()=>{
+    stopProjectAutoplay();
+    if(!projectSection || document.hidden) return;
+    projectTimer=setInterval(()=>{
+      projectIndex=(projectIndex+1)%projects.length;
+      updateProject();
+    },5000);
+  };
+  document.getElementById('projectNext')?.addEventListener('click',()=>{
+    projectIndex=(projectIndex+1)%projects.length;
+    updateProject();
+    startProjectAutoplay();
+  });
+  document.getElementById('projectPrev')?.addEventListener('click',()=>{
+    projectIndex=(projectIndex+projects.length-1)%projects.length;
+    updateProject();
+    startProjectAutoplay();
+  });
+  projectSection?.addEventListener('mouseenter',stopProjectAutoplay);
+  projectSection?.addEventListener('mouseleave',startProjectAutoplay);
+  projectSection?.addEventListener('focusin',stopProjectAutoplay);
+  projectSection?.addEventListener('focusout',event=>{
+    if(!projectSection.contains(event.relatedTarget)) startProjectAutoplay();
+  });
+  startProjectAutoplay();
+  document.addEventListener('visibilitychange',startProjectAutoplay);
 
   const statsSection=document.querySelector('.stats');
   if(statsSection){

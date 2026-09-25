@@ -14,9 +14,11 @@
   <link rel="stylesheet" href="css/index/index.css">
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/spacing.css">
-<link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="home-page">
+
+
 
 <div id="site-header"></div>
 
@@ -26,7 +28,6 @@
     <div class="hero-content">
       <div class="hero-copy reveal">
         <h1>Soluciones y suministros<br>para la industria</h1>
-        <a href="html/contacto.html" class="btn btn-primary btn-arrow">Contáctanos</a>
       </div>
     </div>
   </section>
@@ -37,7 +38,7 @@
         <div class="eyebrow">Nuestra empresa</div>
         <h2 class="section-title">SOBRE<br>NOSOTROS</h2>
         <p class="muted">Grupo Inox es reconocido como un distribuidor de productos industriales en Bolivia y representante de marcas líderes del sector. Integramos suministros de alta calidad con servicios especializados para responder a las necesidades de cada proyecto.</p>
-        <a href="html/nosotros.html" class="text-link outline-link">Conoce nuestra empresa</a>
+        <a href="html/nosotros/nosotros.html" class="text-link outline-link">Conoce nuestra empresa</a>
       </div>
       <div class="about-mosaic reveal">
         <div class="media-card big">
@@ -67,7 +68,6 @@
           <div class="counter" id="sectorCounter">01 / 05</div>
           <h3 id="sectorName">PETROLERO</h3>
           <p class="muted" id="sectorText">Suministramos componentes para la conducción y el control de fluidos, con orientación técnica para las necesidades del sector petrolero.</p>
-          <a href="#" class="btn btn-primary btn-arrow">Ver más</a>
           <div class="slider-controls">
             <button class="round-btn" id="sectorPrev" aria-label="Anterior">←</button>
             <button class="round-btn" id="sectorNext" aria-label="Siguiente">→</button>
@@ -234,14 +234,14 @@
       </div>
 
       <div class="project-grid">
-        <div class="project-info reveal">
+        <div class="project-info reveal" aria-live="polite">
           <div class="project-category" id="projectCategory">Industria alimenticia · Proyecto industrial</div>
           <h3 id="projectName">PACEÑA</h3>
           <p class="muted" id="projectText">Suministro de componentes y soluciones para apoyar la operación de plantas de la industria alimenticia.</p>
           <div class="project-nav">
-            <button class="round-btn" id="projectPrev">←</button>
+            <button class="round-btn" id="projectPrev" aria-label="Proyecto anterior">←</button>
             <a class="project-logo" id="projectLogo" href="html/proyectos/proyectos.html#proyecto-1" aria-label="Ver el proyecto PACEÑA"><img src="images/proyectos/paceña.png" alt="Logo de PACEÑA" decoding="async"></a>
-            <button class="round-btn" id="projectNext">→</button>
+            <button class="round-btn" id="projectNext" aria-label="Proyecto siguiente">→</button>
           </div>
         </div>
         <div class="project-image reveal">

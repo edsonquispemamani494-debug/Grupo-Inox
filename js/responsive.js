@@ -82,7 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const effects = document.createElement('style');
   effects.textContent = '@media(max-width:767px) and (hover:none) and (pointer:coarse){' + effectRules.join('\n') + '}';
   document.head.append(effects);
-  const cards = document.querySelectorAll(effectTargets);
+  const sharedEffectTargets = effectTargets + ',main img,.project-image,.project-story__frame,.sector-slide,.product-detail-hero__visual,.available-brand,.sheet-thumbnail,.sheet-certification-image,.sheet-image,.form-box,.branch-form';
+  let cards = document.querySelectorAll(sharedEffectTargets);
   let centerUpdatePending = false;
   const updateCenteredCards = () => {
     centerUpdatePending = false;
@@ -111,5 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', scheduleCenterUpdate, { passive: true });
   window.addEventListener('resize', scheduleCenterUpdate);
   mobile.addEventListener('change', scheduleCenterUpdate);
+  // Incluye tambien las tarjetas creadas al filtrar o cambiar de producto.
+  const contentObserver = new MutationObserver(() => {
+    cards = document.querySelectorAll(sharedEffectTargets);
+    scheduleCenterUpdate();
+  });
+  contentObserver.observe(document.querySelector('main') || document.body, {
+    childList: true, subtree: true
+  });
   scheduleCenterUpdate();
 });

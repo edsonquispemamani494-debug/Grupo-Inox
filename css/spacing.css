@@ -1,43 +1,77 @@
-/* Espacio exterior de secciones; no modifica el interior de los componentes. */
+@import url('./interactions.css');
+
+/* Medidas compartidas por todas las paginas. La capa da prioridad a estas
+   reglas importantes sobre las excepciones de las hojas de cada pagina. */
 @layer spacing {
   :root {
     --section-space: clamp(32px, 4vw, 48px);
+    --hero-height: clamp(740px, 100svh, 1020px);
+    --hero-top: 130px;
+    --hero-bottom: 60px;
   }
 
-  main > :is(
-    .section, .product-showcase, .featured-products, .product-detail-catalog,
-    .about-overview, .purpose-section, .team-section,
-    .services-intro, .services-work, .project-stages,
-    .maintenance-types, .maintenance-actions,
-    .advisory-services, .advisory-process
-  ) {
+  main > section:not(:is(.hero, .internal-hero, .about-hero, .catalog-hero,
+    .projects-hero, .product-detail-hero, .contact-hero, .branch-section)) {
     padding-block: var(--section-space) !important;
+    margin-block: 0 !important;
   }
 
-  /* Mantener el ritmo mas compacto que ya tenia el bloque de marcas. */
-  main > #marcas-aliadas {
-    padding-block: clamp(24px, 3vw, 40px) !important;
+  main > :is(.hero, .internal-hero, .about-hero, .catalog-hero,
+    .projects-hero, .product-detail-hero, .contact-hero) {
+    box-sizing: border-box;
+    min-height: var(--hero-height) !important;
+    height: auto !important;
+    padding-block: var(--hero-top) var(--hero-bottom) !important;
+    margin-block: 0 !important;
+    display: flex;
+    align-items: center !important;
   }
 
-  main > .project-collection-intro {
-    padding-top: var(--section-space) !important;
+  /* El video cubre una portada de altura definida, igual a las demas. */
+  main > .about-hero {
+    height: var(--hero-height) !important;
   }
 
-  main > .project-story {
-    padding-top: var(--section-space) !important;
-    padding-bottom: 24px !important;
+  /* El espacio del hero se aplica una sola vez, en su contenedor exterior. */
+  main > :is(.hero, .projects-hero) > :is(.hero-content, .projects-hero__content) {
+    padding-block: 0 !important;
+  }
+
+  .about-overview > .container > .experience,
+  .sheet-tabs, .sheet-info-grid {
+    margin-top: var(--section-space) !important;
   }
 
   /* Contacto comienza bajo el header fijo: conservar su espacio superior. */
   main > .branch-section {
     padding-bottom: var(--section-space) !important;
   }
-
-  .about-overview > .container > .experience {
-    margin-top: clamp(32px, 4vw, 48px) !important;
+  .product-sheet {
+    padding-bottom: var(--section-space) !important;
+  }
+  .sheet-section, .sheet-tabs {
+    margin-bottom: var(--section-space) !important;
+  }
+  .sheet-section:last-child {
+    margin-bottom: 0 !important;
   }
 
   .purpose-section > .purpose-layout {
-    row-gap: clamp(40px, 5vw, 64px) !important;
+    row-gap: calc(2 * var(--section-space)) !important;
+  }
+
+  @media (max-width: 800px) {
+    :root {
+      --hero-height: max(780px, 100svh);
+      --hero-top: 120px;
+      --hero-bottom: 48px;
+    }
+    .product-detail-hero__visual {
+      min-height: 220px !important;
+      margin-top: 20px !important;
+    }
+    .product-detail-hero__visual img {
+      height: 220px !important;
+    }
   }
 }

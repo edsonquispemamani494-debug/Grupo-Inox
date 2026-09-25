@@ -1,0 +1,146 @@
+/* Efectos comunes: el desplazamiento de carruseles y las vistas de la ficha
+   conservan sus propias transformaciones. */
+@layer interactions {
+  :root {
+    --image-zoom: 1.06;
+    --card-lift: -6px;
+    --interaction-duration: .7s;
+    --interaction-ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  main img {
+    transition: transform var(--interaction-duration) var(--interaction-ease),
+      scale var(--interaction-duration) var(--interaction-ease),
+      filter var(--interaction-duration) ease, opacity .35s ease !important;
+  }
+  main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li) {
+    transition: transform var(--interaction-duration) var(--interaction-ease),
+      box-shadow var(--interaction-duration) ease, opacity .75s ease,
+      background-color .3s ease, color .3s ease, border-color .3s ease !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li):hover {
+      transform: translateY(var(--card-lift)) !important;
+    }
+    main img:not(.sheet-image img):hover,
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .team-card, .maintenance-card, .purpose-image, .services-intro__image, .maintenance-actions__image, .project-image, .project-story__frame, .sector-slide, .product-showcase__card, .product-detail-hero__visual, .brand, .available-brand, .sheet-thumbnail, .sheet-certification-image):hover img {
+      transform: scale(var(--image-zoom)) !important;
+    }
+    /* La ficha mantiene los modos de acercamiento y vista lateral. */
+    main .sheet-image:hover img {
+      scale: var(--image-zoom);
+    }
+  }
+
+  main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li):focus-within {
+    transform: translateY(var(--card-lift)) !important;
+  }
+  main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .team-card, .maintenance-card, .purpose-image, .services-intro__image, .maintenance-actions__image, .project-image, .project-story__frame, .sector-slide, .product-showcase__card, .product-detail-hero__visual, .brand, .available-brand, .sheet-thumbnail, .sheet-certification-image):focus-within img {
+    transform: scale(var(--image-zoom)) !important;
+  }
+  main .sheet-image:focus-within img {
+    scale: var(--image-zoom);
+  }
+
+  @media (max-width: 767px) and (hover: none) and (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li).is-mobile-visible {
+      transform: translateY(var(--card-lift)) !important;
+    }
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .team-card, .maintenance-card, .purpose-image, .services-intro__image, .maintenance-actions__image, .project-image, .project-story__frame, .sector-slide, .product-showcase__card, .product-detail-hero__visual, .brand, .available-brand, .sheet-thumbnail, .sheet-certification-image).is-mobile-visible img,
+    main img.is-mobile-visible:not(.sheet-image img) {
+      transform: scale(var(--image-zoom)) !important;
+    }
+    main .sheet-image.is-mobile-visible img {
+      scale: var(--image-zoom);
+    }
+  }
+
+  /* Los fondos fotograficos reciben el mismo zoom que las imagenes. */
+  main :is(.service-slide, .service-window)::before {
+    transition: transform var(--interaction-duration) var(--interaction-ease) !important;
+  }
+
+  /* Translate independiente para no sustituir la posicion del carrusel. */
+  main :is(.product-showcase__card, .service-slide, .service-window) {
+    transition-property: transform, translate, width, height, flex-basis, opacity, box-shadow, visibility !important;
+    transition-duration: var(--interaction-duration) !important;
+    transition-timing-function: var(--interaction-ease) !important;
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    main :is(.product-showcase__card, .service-slide, .service-window):hover {
+      translate: 0 var(--card-lift);
+    }
+    main :is(.brand, .available-brand):hover {
+      transform: none !important;
+    }
+  }
+  main :is(.product-showcase__card, .service-slide, .service-window):focus-within {
+    translate: 0 var(--card-lift);
+  }
+  @media (max-width: 767px) and (hover: none) and (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+    main :is(.product-showcase__card, .service-slide, .service-window).is-mobile-visible {
+      translate: 0 var(--card-lift);
+    }
+    main :is(.brand, .available-brand).is-mobile-visible {
+      transform: none !important;
+    }
+  }
+
+  /* Estas tarjetas cambian también de ancho; conservan su animación compuesta. */
+  main .featured-products .featured-product-card {
+    transition: flex-grow .65s cubic-bezier(.22,1,.36,1),
+      transform .6s cubic-bezier(.22,1,.36,1),
+      box-shadow .55s ease, opacity .5s ease !important;
+  }
+  main .featured-products .featured-product-card > img {
+    transition: transform .7s cubic-bezier(.22,1,.36,1), filter .55s ease !important;
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    main .featured-products .featured-product-card:is(:hover,:focus-within) {
+      transform: translateY(-7px) scale(1.035) !important;
+    }
+    main .featured-products .featured-product-card:is(:hover,:focus-within) > img {
+      transform: translateY(-16px) scale(1.1) !important;
+    }
+  }
+  @media (min-width:651px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    main .featured-products .featured-product-card.is-center:is(:hover,:focus-within) > img {
+      transform: translateY(-58px) scale(1.2) !important;
+    }
+  }
+  @media (max-width:767px) and (hover:none) and (pointer:coarse) and (prefers-reduced-motion:no-preference) {
+    main .featured-products .featured-product-card.is-mobile-visible > img {
+      transform: translateY(-16px) scale(1.1) !important;
+    }
+    main .featured-products .featured-product-card.is-center.is-mobile-visible > img {
+      transform: translateY(-26px) scale(1.16) !important;
+    }
+  }
+  /* El mapa de sucursales mantiene fijos sus marcadores y queda fuera del zoom global. */
+  main .branch-experience .map-wrap > img.bolivia-map,
+  main .branch-experience .map-wrap > img.bolivia-map:hover {
+    transform: none !important;
+    scale: 1 !important;
+    transition: none !important;
+  }
+  /* Contener la entrada lateral de las cajas de la linea de tiempo. */
+  .project-stages { overflow-x: clip; }
+
+  @media (prefers-reduced-motion: reduce) {
+    main img, main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li), main :is(.service-slide, .service-window)::before {
+      transition: none !important;
+      animation: none !important;
+    }
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .value-card, .team-card, .service-icon-card, .timeline-content, .advisory-card, .maintenance-card, .form-box, .branch-form, .advisory-process__steps li, .maintenance-actions__list li, .attention-process__steps li):is(:hover, :focus-within, .is-mobile-visible),
+    main :is(.media-card, .why-card, .category-tile, .featured-product-card, .product-type-card, .available-product, .sheet-related-card, .team-card, .maintenance-card, .purpose-image, .services-intro__image, .maintenance-actions__image, .project-image, .project-story__frame, .sector-slide, .product-showcase__card, .product-detail-hero__visual, .brand, .available-brand, .sheet-thumbnail, .sheet-certification-image):is(:hover, :focus-within, .is-mobile-visible) img,
+    main img:not(.sheet-image img):hover {
+      transform: none !important;
+    }
+    main .sheet-image img { scale: 1 !important; }
+    main :is(.product-showcase__card, .service-slide, .service-window) {
+      translate: none !important;
+      transition: none !important;
+    }
+  }
+}

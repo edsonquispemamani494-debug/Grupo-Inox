@@ -335,7 +335,7 @@ button{cursor:pointer}
     }
 .brand-track{
       display:flex;width:max-content;
-      animation:marquee 22s linear infinite;
+      animation:marquee 42s linear infinite;
     }
 .brand{
       width:210px;height:200px;
@@ -927,15 +927,17 @@ html.industrial-cursor-active{
 .team-portrait-caption p{margin:0;color:var(--text-blue);font-size:15px;line-height:1.5}
 .about-hero{
   position:relative;
-  min-height:clamp(650px,70vw,790px);
+  box-sizing:border-box;
+  height:var(--hero-height,clamp(740px,100svh,1020px));
+  min-height:var(--hero-height,clamp(740px,100svh,1020px));
   display:flex;
   align-items:center;
-  padding:130px 0 70px;
+  padding:var(--hero-top,130px) 0 var(--hero-bottom,60px);
   overflow:hidden;
   color:#fff;
   background:url('../../images/imagendelaempresa1.png') center 43%/cover no-repeat;
 }
-.about-hero-background{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.about-hero-background{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center;pointer-events:none}
 .about-hero::before{
   z-index:1;
   pointer-events:none;
@@ -1015,13 +1017,13 @@ html.industrial-cursor-active{
 .experience-stat .accent{color:var(--orange)}
 .experience-stat small{display:block;margin-top:8px;color:#164980;font-size:.82rem}
 @media (max-width:900px){
-  .about-hero{min-height:700px;background-position:58% center}
+  .about-hero{background-position:58% center}
   .about-hero-grid{grid-template-columns:minmax(0,1fr);gap:18px}
   .about-hero-video{justify-content:flex-start;min-height:auto}
   .about-intro{grid-template-columns:1fr;gap:32px}.about-copy{padding-top:0;max-width:none}.experience-grid{grid-template-columns:repeat(2,1fr);row-gap:44px}
 }
 @media (max-width:560px){
-  .about-hero{min-height:620px;padding:120px 0 60px;background-position:62% center}
+  .about-hero{background-position:62% center}
   .about-hero h1{font-size:clamp(2rem,8vw,3rem)!important}
   .about-hero h1 br,.about-hero-copy p br{display:none}
   .about-hero-copy p{max-width:440px}

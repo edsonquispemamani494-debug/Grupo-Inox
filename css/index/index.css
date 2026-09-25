@@ -335,7 +335,7 @@ button{cursor:pointer}
     }
 .brand-track{
       display:flex;width:max-content;
-      animation:marquee 22s linear infinite;
+      animation:marquee 42s linear infinite;
     }
 .brand{
       width:210px;height:200px;
@@ -374,6 +374,17 @@ button{cursor:pointer}
 .project-image{position:relative;top:-180px;height:620px;margin-bottom:-180px;border-radius:30px;overflow:hidden}
 .project-image img{transform:scale(1);opacity:1;transition:opacity .32s ease,transform .55s cubic-bezier(.22,.61,.36,1)}
 .project-image.is-changing img{opacity:0;transform:scale(1.045)}
+
+/* Contraste editorial sobre fotografías de luminosidad variable. */
+.home-page .product-showcase__content,
+.home-page .product-showcase__card[active] .product-showcase__content{
+      background:linear-gradient(180deg,rgba(4,20,35,.18) 20%,rgba(4,20,35,.97) 100%);
+      text-shadow:0 2px 12px rgba(0,0,0,.6);
+    }
+.home-page .product-showcase__content small{color:#ff9b52}
+.home-page .product-showcase__content h3{color:#f8fafc!important}
+.home-page .product-showcase__content p{color:#e8eef5;opacity:1}
+.home-page .product-showcase__content a{color:#fff;text-shadow:none}
 .contact-grid{
       display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center
     }
